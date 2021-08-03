@@ -71,15 +71,50 @@ check(age: 15)//age 标签
 //swift拥有参数标签，因此没有此类限制，省略标签反之
 
 
-//可变参数          //...可变参数 可以传很多个Int类型
+//可变参数
+//...可变参数 可以传很多个Int类型
 //一个函数最多只能有1个可变参数
 //紧跟在可变参数后面的参数不能省略参数标签
-func sumMutable(_ numbers: Int...) -> Int {
+func sumMutable(_ numbers: Int... , string: String, _ other: String) -> Int {
     var total = 0
     for number in numbers {//numbers 数组
         total += number
     }
     return total
 }
-sumMutable(10, 20, 30, 40)//赋值给numbers
+sumMutable(10, 20, 30, 40, string:"name", "Rose")//赋值给numbers
+//针对输出 修改
+print("1","2","3",separator: "*", terminator: "\t")
+print("1","2","3")
+
+//函数类型 //函数类型作为函数参数
+//定义变量methodF  函数类型 赋值函数名类型
+var methodF:(Int, Int) -> Int = sum
+methodF(2,3)//变量调用函数sum //调用时不需要函数
+
+func difference(v1: Int,v2: Int) -> Int {
+    v1 - v2
+}
+//函数类型 调用的时候不用写标签
+func printResult(_ mathFu: (Int,Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result:\(mathFu(a,b))")
+}
+printResult(sum, 5, 2)
+printResult(difference, 5, 2)
+
+//函数类型作为函数返回值
+func next(_ input: Int) -> Int {
+    input + 1
+}
+func previous(_ input: Int) -> Int {
+    input - 1
+}
+//                            ->是forward函数的
+//                               (Int) -> Int 返回函数类型 并且接收Int类型 并且函数返回Int类型
+func forward(_ forward: Bool) -> (Int) -> Int {
+    forward ? next : previous
+}//高阶函数
+forward(true)(3)
+forward(false)(3)
+//返回值是函数类型的函数，叫做高阶函数
 //: [Next](@next)

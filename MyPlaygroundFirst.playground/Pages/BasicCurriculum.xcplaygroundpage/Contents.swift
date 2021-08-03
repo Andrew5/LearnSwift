@@ -16,7 +16,39 @@ func getAge(ff: inout Int, length: Int)-> Int{
     return ff
 }
 fff = getAge(ff: &fff, length: 22)
+//输入输出
+var number = 10
+//num 默认为let类型
+func add(_ num: inout Int) {//inout 在里面修改外部的值
+//    num += 1
+    num = 20
+}
+add(&number)// leap指令 地址传递
 
+var numbers = [10, 20, 30]
+numbers[0] = 20
+//能被多赋值的变量就可以传给num
+func addN(_ num: inout Int) {
+    print("入的值\(num)")
+}
+addN(&numbers[0])
+
+//变量交换
+func swapValues(_ v1: inout Int, _ v2: inout Int) {
+    let tmp = v1
+    v1 = v2
+    v2 = tmp
+}
+var num1 = 10
+var num2 = 20
+swapValues(&num1, &num2)
+//利用元组实现两值交换
+func swapValues1(_ v1: inout Int, _ v2: inout Int){
+    (v1, v2) = (v2, v1)
+}
+//可变参数不能标记inout
+//inout 参数不能有默认值
+//inline 内联函数展开为函数体调用
 func 🐂🍺(name:String){
     print("Y:\(name)")
 }

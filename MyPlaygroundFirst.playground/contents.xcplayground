@@ -9,5 +9,9 @@
         <page name='enum'/>
         <page name='ClosureExpression'/>
         <page name='FunctionDefinition'/>
+        <page name='FunctionOverload'/>
+        <page name='TypeAlias'/>
+        <page name='@inlineFunction'/>
+        <page name='NestedFunction'/>
     </pages>
 </playground>
