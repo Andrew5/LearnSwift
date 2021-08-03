@@ -166,5 +166,31 @@ default:
 }
 
 //区间匹配、元组匹配
+let count = 62
+switch count {
+case 0:
+    print("none")
+case 0..<5:
+    print("a few")
+case 5..<12:
+    print("several")
+case 12..<1000:
+    print("hundreds of")
+default:
+    print("many")
+}
 
+let point = (1,1)//二维平面的点
+switch point {
+case (0,0):
+    print("the origin")
+case (_,0):
+    print("on the x-axis")
+case (0,_):
+    print("on the y-axis")
+case (-2...2,-2...2)://点是不是在正方形内
+    print("inside the box")
+default:
+    print("outside of the box")
+}
 //: [Next](@next)

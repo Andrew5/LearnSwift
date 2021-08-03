@@ -8,5 +8,6 @@
         <page name='BasicCurriculum'/>
         <page name='enum'/>
         <page name='ClosureExpression'/>
+        <page name='FunctionDefinition'/>
     </pages>
 </playground>

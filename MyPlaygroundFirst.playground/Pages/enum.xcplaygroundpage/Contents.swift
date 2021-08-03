@@ -15,7 +15,7 @@ enum HouseType: String {
     case Baratheon = "Ours is the Fury"
     case Greyjoy = "We Do Not Sow"
     case Martell = "Unbowed, Unbent, Unbroken"
-    case Stark = "Winter is Coming"
+    case Stark = "Winter    is Coming"
     case Tully = "Family, Duty, Honor"
     case Tyrell = "Growing Strong"
 }
