@@ -90,6 +90,11 @@ print("1","2","3")
 //函数类型 //函数类型作为函数参数
 //定义变量methodF  函数类型 赋值函数名类型
 var methodF:(Int, Int) -> Int = sum
+
+//public static let `defult1` = "测试"
+public let `defult` = "测试"
+print("静态\(defult)")
+
 methodF(2,3)//变量调用函数sum //调用时不需要函数
 
 func difference(v1: Int,v2: Int) -> Int {
