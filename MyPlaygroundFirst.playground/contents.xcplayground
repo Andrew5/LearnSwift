@@ -14,5 +14,6 @@
         <page name='@inlineFunction'/>
         <page name='NestedFunction'/>
         <page name='LLDB'/>
+        <page name='MemoryGameXCPTut'/>
     </pages>
 </playground>

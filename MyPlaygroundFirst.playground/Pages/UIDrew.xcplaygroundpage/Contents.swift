@@ -136,6 +136,33 @@ PlaygroundPage.current.liveView = tableView
 let viewRed = UIView()
 viewRed.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 viewRed.backgroundColor = UIColor.blue
+//CALayer边框
+viewRed.layer.borderWidth = 2
+viewRed.layer.borderColor = UIColor.black.cgColor
+       //CALayer阴影
+viewRed.layer.shadowColor = UIColor.gray.cgColor
+viewRed.layer.shadowOffset = CGSize(width: 10, height: 10)
+viewRed.layer.shadowOpacity = 0.5
+viewRed.layer.shadowRadius = 5.0
+       //CGLayer圆角
+viewRed.layer.masksToBounds = true//设置圆角半径对view有用，但对view的内容不起作用，所以对内容进行裁边
+viewRed.layer.cornerRadius = 100
+//       self.view.addSubview(viewRed)
+       //CALayer渐变
+       let view2 = UIView(frame: CGRect(x: 150, y: 400, width: 100, height: 100))
+       let gradientLayer = CAGradientLayer()
+       gradientLayer.frame = view2.bounds
+       let formColor = UIColor.yellow.cgColor
+       let midColor = UIColor.blue.cgColor
+       let toColor = UIColor.red.cgColor
+       gradientLayer.colors = [formColor,midColor,toColor]
+       view2.layer.addSublayer(gradientLayer)
+       //设置渐变方向
+       gradientLayer.startPoint = CGPoint(x: 0, y: 0)//值在0～1
+       gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+       //设置渐变行走轨迹
+       gradientLayer.locations = [0,0.5,1]
+
 PlaygroundPage.current.liveView = viewRed
 
 let imageViewRed = UIImageView(image: UIImage(named: "delapp"))
@@ -146,7 +173,24 @@ vcListVC.view.backgroundColor = UIColor.lightGray
 PlaygroundPage.current.liveView = vcListVC
 
 
+class myClass: Timer{
+    func printFrom1To1000() {
+     for counter in 0...1000 {
+        let b = counter
+        print("计时器：\(b)")
+     }
+    }
+}
 
+let myClassInstance = myClass()
+
+var timer = Timer.scheduledTimer(timeInterval: 0,
+    target: myClassInstance,
+    selector: Selector(("printFrom1To1000")),
+    userInfo: nil,
+    repeats: false
+)
+timer.fire()
 
 
 
