@@ -4,20 +4,32 @@ import Foundation
 
 var str = "Hello, playground"
 //元组 tuple
-let error = (404,"Not Found")
+let error = (404,"Not Found",404)
 error.0
 error.1
 
-let (statusCode, statusMessage) = error
+
+let (statusCode, statusMessage, sameElement) = error
 statusCode
 statusMessage
+sameElement
+error.2
 
-let (justStatusCode, _) = error
+let (justStatusCode, _, _) = error
 justStatusCode
+
+var name = (my:"today",last:"swift")
+name.0
+name.my
 
 let http200Status = (statusCode:200, description:"OK")
 http200Status.statusCode
 http200Status.description
+
+var a = (1,15,6,"hello",true)
+var b:(Int,String)=(10,"String")
+print(a)
+
 
 //值绑定
 let point = (2,0)
