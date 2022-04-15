@@ -95,11 +95,11 @@ r1
 
 // 可用 reduce 完全替换实现，极大提高执行效率：
 [0, 1, 2, 3, 4].reduce(0, { (ac, r) in
-  if (r + 3) % 2 == 0 {
-   return ac + r + 3
-  } else {
-   return ac
-  }
+    if (r + 3) % 2 == 0 {
+        return ac + r + 3
+    } else {
+        return ac
+    }
 })
 
 // for-loop 版本
@@ -118,11 +118,11 @@ for i in 0...100000 {
 
 //unique：剔除列表中重复的元素。最好的解决方式是使用集合（Set）
 [1, 2, 5, 1, 7].reduce([], { (a: [Int], b: Int) -> [Int] in
-if a.contains(b) {
-   return a
-} else {
-   return a + [b]
-}
+    if a.contains(b) {
+        return a
+    } else {
+        return a + [b]
+    }
 })
 // prints: 1, 2, 5, 7
 
@@ -155,6 +155,7 @@ extension Array {
     }
 }
 let arrayTest = [1,2,2,3,4,3]
+print("元素\(arrayTest[1])")
 arrayTest.filterDuplicates({$0})//闭包的第一个参数
 
 
