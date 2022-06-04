@@ -79,6 +79,9 @@ class MainViewController: UIViewController, UITextViewDelegate {
         view.isEditable = true
         view.delegate = self
         self.view.addSubview(view)
+        
+        print("屏幕的高是\(String(describing: getHeight(20.0)))")
+
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,replacementText text: String) -> Bool {
         if variableThatChanges == (arrayOfStrings.count - 1){
@@ -88,6 +91,20 @@ class MainViewController: UIViewController, UITextViewDelegate {
         textView.text = text + "\n" + arrayOfStrings[variableThatChanges]
         variableThatChanges += 1
         return false
+    }
+    func getHeight(_ height: Float?) -> Float? {
+
+       if let unwrapedHeight = height {
+           return unwrapedHeight / 100
+       }
+       return nil
+        /*或者
+         guard let unwrapedHeight = height else {
+            return nil
+          }
+          return unwrapedHeight / 100
+         */
+
     }
 }
 
