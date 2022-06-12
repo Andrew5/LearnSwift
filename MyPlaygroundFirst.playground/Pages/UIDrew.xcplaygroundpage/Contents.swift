@@ -81,8 +81,8 @@ class MainViewController: UIViewController, UITextViewDelegate {
         self.view.addSubview(view)
         
         print("屏幕的高是\(String(describing: getHeight(20.0)))")
-
     }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,replacementText text: String) -> Bool {
         if variableThatChanges == (arrayOfStrings.count - 1){
             variableThatChanges = 0
