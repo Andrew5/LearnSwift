@@ -2,6 +2,7 @@
 
 import Foundation
 import UIKit
+import XCPlayground
 
 var str = "Hello, playground"
 //生成语法树：swift -dump-ast main.swift
@@ -51,6 +52,152 @@ extension GYLoadNibProtocl where Self : UIView {
           return Bundle.main.loadNibNamed(loadName, owner: nil, options: nil)?.first as! Self
     }
 }
+extension Int {
+    var toDouble: Double {
+        Double(self)
+    }
+    //不能增加储存属性 因为新增一个储存属性会完全影响到建立这个类型本身 可能原本很多启动方式就不能用了 而且这个类的大小会因此改变
+//    var double: Double = Double(self)
+    //但是 如果是这个类型的属性 也就是它的静态属性就没有这个限制
+    static let one = 1
+    //新增方法
+    func square() -> Int {self * self}
+    //新增静态方法           //回传给自己
+    static func random() -> Self {
+        //随机最大到最小的范围
+        random(in: Int.min...Int.max)
+    }
+    //新增启动方法
+    init(_ bool: Bool) {
+        self = bool ? 34 : 23
+    }
+}
+let number = 100
+print(number.toDouble)
+Int.one
+number.square()
+print(Int.random())
+Int(true)
+Int(false)
+
+for i in 0...100 {
+    sin(Double(i))
+}
+
+extension Locale {
+    static let tch: Locale = .init(identifier: "zh-hant-tw")
+    static let japan: Locale = .init(identifier: "ja_JP")
+    static let english: Locale = .init(identifier: "en_US")
+}
+extension NumberFormatter {
+    static let decimalFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = .tch
+        return formatter
+    }()
+}
+extension Numeric {
+    func formatter() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal//千位数的时候加逗号分隔
+        return formatter.string(for: self)!
+    }
+    func formatted(by style: NumberFormatter.Style = .decimal,locale: Locale = .tch) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = style//千位数的时候加逗号分隔
+//        formatter.locale = .init(identifier: "zh-hant-bj")//语言
+        formatter.locale = locale
+        return formatter.string(for: self)!
+    }
+    //"NumberFormatter = .decimalFormatter"预设值
+    func formatteds(by formatter: NumberFormatter = .decimalFormatter) -> String {
+        formatter.string(for: self)!
+    }
+}
+let numberint = 100000
+print(numberint.formatter())
+print(2000000.formatter())
+print("当前语言\(Decimal(40000000000.888).formatted(by: .currency))")
+print("spellOut语言\(Decimal(1239999.33333).formatted(by: .spellOut))")
+print("日本语言\(123456.formatted(by: .currency,locale: .japan))")
+print("日本语言\(Decimal(56789).formatted(by: .spellOut,locale: .japan))")
+print("英语语言\(Decimal(6789023).formatted(by: .spellOut,locale: .english))")
+print("台湾语言\(Decimal(123456).formatteds(by: .currencyFormatter))")
+print("decimal语言\(Decimal(123456).formatteds(by: .decimalFormatter))")
+print("台币\(numberint.formatted(.currency(code: "TWD")))")
+print("日币\(numberint.formatted(.currency(code: "JPY")))")
+
+struct Cat {
+    var name: String
+    var color: String
+}
+//自定的启动方式 写入到extension 就可以维持两种启动方式 因为在extension里的东西 并不会去影响本来在struct定义完成的内容
+extension Cat {
+    enum Color: String{ case 橘色, 黄色, 黑色, 灰色, 白色}
+    init(name: String, color: Color) {
+        self.name = name
+        self.color = color.rawValue
+    }
+}
+
+// protocol
+extension Cat: Equatable {
+    
+}
+
+extension Cat: CustomStringConvertible {
+    var description: String {
+        "\(color)的\(name)"
+    }
+}
+let cat = Cat(name: "蛋蛋", color: "橘色")
+let cat2 = Cat(name: "皇阿玛", color: .黄色)
+print("输出\(cat)")
+print("输出\(cat2)")
+
+
+extension String {
+    subscript(_ offset: Int) -> Character? {
+        guard offset >= 0, let index = self.index(startIndex, offsetBy: offset, limitedBy: index(before:endIndex)) else {return nil}
+        return self[index]
+    }
+}
+
+let string = "可爱的小猫咪"
+for index in -1...string.count {
+    print(string[index] ?? "没有")
+}
+
+
+extension Collection {
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+}
+[1,2,3,4,5].isNotEmpty
+"".isNotEmpty
+
+extension Collection  where Element == Int {//要求更为严格
+    func sum() -> Self.Element {
+        return reduce(0, +)
+    }
+}
+
+extension Collection  where Element : Numeric {
+    func sum() -> Self.Element {
+        reduce(.zero, +)
+    }
+}
+[1,2,3,4,5].sum()
+print("------------")
+[1,2,3,4,5.222].sum()
+//只有实例的储存属性不能新增
 
 class MyViewController : UIViewController {
     static let classLet: Int = 0
@@ -380,8 +527,12 @@ class MyViewController : UIViewController {
 }
 // Present the view controller in the Live View window
 //PlaygroundPage.current.liveView = MyViewController()
+//XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+//当我们获取了需要的结果后，可以使用XCPlaygroundPage.currentPage.finishExecution()停止 Playground 的执行：
+
 //: [Next](@next)
 
 //: [上一页](@previous)
 
 //: [下一页](@next)
+
