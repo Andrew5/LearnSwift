@@ -31,6 +31,9 @@ protocol GYLoadNibProtocl {
 protocol TestProtocol {
     func getSelf() -> Self
 }
+//as : 将派生类转换为基类 从子类到父类的转换，这样是可行的 :1 as Float
+//as!: 强制转换
+//as?: 转换可以让某一对象值为空
 //如果只重写 get 方法,默认为 readOnly
 class TestSubClass: TestProtocol {
     func getSelf() -> Self {
@@ -79,6 +82,68 @@ number.square()
 print(Int.random())
 Int(true)
 Int(false)
+
+// Swift中protocol的功能比OC中强大很多，不仅能在class中实现，同时也适用于struct、enum。
+// 使用 mutating 关键字修饰方法是为了能在该方法中修改 struct 或是 enum 的变量，在设计接口的时候，也要考虑到使用者程序的扩展性。所以要多考虑使用mutating来修饰方法。
+protocol h{
+    mutating func plus(_ num:Int)
+}
+extension Int:h{
+    mutating func plus(_ num:Int){
+        self += num
+    }
+}
+protocol ExampleProtocol {
+    var simpleDescription: String { get }
+    mutating func adjust()
+}
+// 注意声明 SimpleStructure 时候 mutating 关键字用来标记一个会修改结构体的方法。SimpleClass 的声明不需要标记任何方法，因为类中的方法通常可以修改类属性（类的性质）
+struct SimpleStruct: ExampleProtocol {
+    var simpleDescription: String = "A simple structure"
+    mutating func adjust() {
+        simpleDescription += "(adjusted)"
+    }
+}
+class SimpleClass: ExampleProtocol {
+    var simpleDescription: String = "A very simple class"
+    var anotherProperty: Int = 110
+    // 在 class 中实现带有mutating方法的接口时，不用mutating进行修饰。因为对于class来说，类的成员变量和方法都是透明的，所以不必使用 mutating 来进行修饰
+    func adjust() {
+        simpleDescription += " Now 100% adjusted"
+    }
+}
+enum SimpleEnum: ExampleProtocol {
+    case First, Second, Third
+    var simpleDescription: String {
+        get {
+            switch self {
+            case .First:
+                return "first"
+            case .Second:
+                return "second"
+            case .Third:
+                return "third"
+            }
+        }
+
+        set {
+            simpleDescription = newValue
+        }
+    }
+    
+    mutating func adjust() {
+
+    }
+}
+// 打印结果
+var a = SimpleClass()
+a.adjust()
+let aDescription = a.simpleDescription
+// 打印结果
+var abc = 10
+abc.plus(3)
+print("计算和：\(abc)")
+
 
 for i in 0...100 {
     sin(Double(i))

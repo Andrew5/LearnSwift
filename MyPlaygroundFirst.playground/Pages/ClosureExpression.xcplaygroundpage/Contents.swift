@@ -3,6 +3,7 @@
 import Foundation
 
 var str = "Hello, playground"
+var title : String = ""
 ///TODO: 排序内联闭包函数
 //闭包表达式是一种构建内联闭包的方式，在保证不丢失它语法清晰明了的同时，闭包表达式提供了几种优化的语法简写形式
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
@@ -17,6 +18,38 @@ print("排序后的数据是\(reversedNames)")
 //{ (parameters) -> return type in
 //    statements
 //}
+// 当网络请求结束后调用的闭包。发起请求后过了一段时间后这个闭包才执行，并不一定是在函数作用域内执行的
+getData { (data) in
+    print("闭包结果返回--\(data)--\(Thread.current)")
+}
+func getData(closure:@escaping (Any) -> Void) {
+        print("函数开始执行--\(Thread.current)")
+        DispatchQueue.global().async {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2, execute: {
+                print("执行了闭包---\(Thread.current)")
+            })
+        }
+        print("函数执行结束---\(Thread.current)")
+    }
+// 逃逸闭包的生命周期：
+// 1、闭包作为参数传递给函数；
+// 2、退出函数；
+// 3、闭包被调用，闭包生命周期结束
+// 即逃逸闭包的生命周期长于函数，函数退出的时候，逃逸闭包的引用仍被其他对象持有，不会在函数结束时释放。
+func getData1(closure:(Any) -> Void) {
+        print("函数开始执行--\(Thread.current)")
+        print("执行了闭包---\(Thread.current)")
+        print("函数执行结束---\(Thread.current)")
+    }
+// 非逃逸闭包的生命周期：
+// 1、闭包作为参数传给函数；
+// 2、函数中运行改闭包；
+// 3、退出函数
+
+//为什么要分逃逸闭包和非逃逸闭包
+//为了管理内存，闭包会强引用它捕获的所有对象，比如你在闭包中访问了当前控制器的属性、函数，编译器会要求你在闭包中显示 self 的引用，这样闭包会持有当前对象，容易导致循环引用。
+//非逃逸闭包不会产生循环引用，它会在函数作用域内释放，编译器可以保证在函数结束时闭包会释放它捕获的所有对象；使用非逃逸闭包的另一个好处是编译器可以应用更多强有力的性能优化，例如，当明确了一个闭包的生命周期的话，就可以省去一些保留（retain）和释放（release）的调用；此外非逃逸闭包它的上下文的内存可以保存在栈上而不是堆上。
+
 //内联闭包表达式
 reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
     return s1 > s2

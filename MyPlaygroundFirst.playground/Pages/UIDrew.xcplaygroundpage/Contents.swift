@@ -2,7 +2,10 @@ import Foundation
 import PlaygroundSupport
 import UIKit
 
-@propertyWrapper
+//https://blog.csdn.net/zhanglei5415/article/details/121494752
+@propertyWrapper //包装属性
+//每个 @propertyWrapper 都必须实现一个属性 wrappedValue, 实现 wrappedValue 的 set get 就相当于替换掉原属性的 set get.
+// 属性包装器是一种通用结构, 它封装了对该属性的读写访问, 并为其添加了其他行为。如果需要限制可用的属性值, 向读/写访问添加额外的逻辑（例如使用数据库或用户默认值）或添加一些其他方法, 则可以使用它
 struct ClamppedValue {
     private var storedValue: Int = 0
     var wrappedValue: Int {
@@ -25,6 +28,87 @@ struct ClamppedValue {
     }
 }
 
+// 属性包装器
+struct Account {
+    var firstName: String
+    var lastName: String
+    var email: Email<String>
+}
+
+@propertyWrapper
+struct Email<Value: StringProtocol> {
+    var value: Value?
+    var wrappedValue: Value? {
+        get {
+            return validate(email: value) ? value : nil
+        }
+        set {
+            value = newValue
+        }
+    }
+    
+    private func validate(email: Value?) -> Bool {
+        guard let email = email else { return false }
+        let emailRegEx = "[A-Z0-9a-z._%+-][email protected][A-Za-z0-9.-]+\\.[A-Za-z]{2, 64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+}
+
+
+//@Email
+//var email: String?
+//email = "[email protected]"
+//print(email) // [email protected]
+//email = "invalid"
+//print(email) // nil
+@propertyWrapper
+struct Scores {
+    private let minValue = 0
+    private let maxValue = 100
+    private var value: Int
+    init(wrappedValue value: Int) {
+        self.value = value
+    }
+    var wrappedValue: Int {
+        get {
+            return max(min(value, maxValue), minValue)
+        }
+        set {
+            value = newValue
+        }
+    }
+}
+//@Scores
+//var scores: Int = 0
+
+@propertyWrapper
+struct Constrained<Value: Comparable> {
+    private var range: ClosedRange<Value>
+    private var value: Value
+    init(wrappedValue value: Value, _ range: ClosedRange<Value>) {
+        self.value = value
+        self.range = range
+    }
+    var wrappedValue: Value {
+        get {
+            return max(min(value, range.upperBound), range.lowerBound)
+        }
+        set {
+            value = newValue
+        }
+    }
+}
+//@Constrained(0...100)
+//var scores: Int = 0
+
+
+
+
+
+
+
+
 struct MyColor {
     @ClamppedValue var red: Int
     @ClamppedValue var green: Int
@@ -40,6 +124,35 @@ let data = FileManager().contents(atPath: path)
 //let originalString = String(data: data!, encoding: .utf8)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
+
+@propertyWrapper
+struct UserDefaultWrapper<T> {
+    var key: String
+    var defaultT: T!
+    var wrappedValue: T! {
+        get { (UserDefaults.standard.object(forKey: key) as? T) ?? defaultT }
+        nonmutating set {
+            if newValue == nil {
+                UserDefaults.standard.removeObject(forKey: key)
+            } else {
+                UserDefaults.standard.set(newValue, forKey: key)
+            }
+        }
+    }
+    
+    init(_ key: String, _ defaultT: T! = nil) {
+        self.key = key
+        self.defaultT = defaultT
+    }
+}
+struct UserDefaultsUnit {
+    @UserDefaultWrapper("test")
+    static var test: String?
+}
+
+//使用
+UserDefaultsUnit.test = "hahahha" // set
+UserDefaultsUnit.test // get
 
 enum NetworkingError: Error {
     case invalidServerResponse
