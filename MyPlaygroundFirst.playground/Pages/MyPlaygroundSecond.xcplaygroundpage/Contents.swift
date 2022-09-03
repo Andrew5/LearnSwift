@@ -40,7 +40,6 @@ class TestSubClass: TestProtocol {
         return TestSubClass() as! Self
     }
     
-    
     var name = "测试"
     class func getInstance() -> Self {
         return TestSubClass() as! Self
@@ -104,6 +103,111 @@ struct SimpleStruct: ExampleProtocol {
         simpleDescription += "(adjusted)"
     }
 }
+// 扩展可以向现有类型添加计算实例属性和计算类型属性， 注意⚠️：扩展可以添加新的计算属性，但它们不能添加存储属性，或向现有属性添加属性观察者
+extension Double {
+    var km: Double { return self * 1_000.0 }
+    var  m: Double { return self }
+    var cm: Double { return self / 100.0 }
+    var mm: Double { return self / 1_000.0 }
+    var ft: Double { return self / 3.28084 }
+}
+let oneInch = 25.4.mm
+print("One inch is \(oneInch) meters")
+// Prints "One inch is 0.0254 meters"
+let threeFeet = 3.ft
+print("Three feet is \(threeFeet) meters")
+// Prints "Three feet is 0.914399970739201 meters"
+let aMarathon = 42.km + 195.m
+print("A marathon is \(aMarathon) meters long")
+// Prints "A marathon is 42195.0 meters long"
+
+// 向已存在类型添加新的实例方法和类型方法
+extension Int {
+    func repetitions(task: () -> Void) {
+        for _ in 0..<self {
+//            task()
+            print("task")
+        }
+    }
+}
+2.repetitions {
+    print("Hello!")
+}
+// 添加可变的实例方法 通过扩展增加的实例方法可以修改实例本身。如果结构体和枚举的方法要修改self或其属性，则需要使用mutating关键字标明
+extension Int {
+    // 只有mutating修饰的方法才能更改实例属性和实例本身
+    mutating func sum(v1: Int,_ v2: Int) -> Int {
+        v1 * v2
+    }
+    mutating func square1() {
+      self = self * self
+    }
+    mutating func test(cal:inout Int) {
+        cal = cal * cal
+    }
+}
+var someInt = 3
+someInt.sum(v1: 3, 3)
+someInt.square1()
+var myTestNumber = 9
+someInt.test(cal: &myTestNumber)
+
+// 扩展可以向已存在的类型添加下标 添加附属脚本
+// 可以定义在class, struct, enum中，可以认为是访问对象，集合或序列的快捷方式，不需要在调用实例的特定的赋值方法和访问方法
+// 用附属脚本访问一个Array实例中的元素可以写为someArray[index]，访问Dictionary实例中的元素可以写为someDictionary[key]
+
+extension Int {
+    subscript(digitIndex: Int) -> Int {
+        var decimalBase = 1
+        for _ in 0..<digitIndex {
+            decimalBase *= 10
+        }
+        return (self / decimalBase) % 10
+    }
+}
+746381295[0]
+// returns 5
+746381295[1]
+// returns 9
+746381295[2]
+// returns 2
+746381295[8]
+// returns 7
+// 如果一个Int数字没有足够多的位数，那么它会在最左边添加0来补全，然后返回0给调用方，
+
+// 嵌套类型 扩展可以向已存在的类，结构体和枚举添加新的嵌套类型
+extension Int {
+    enum Kind {
+        case negative, zero, positive
+    }
+    var kind: Kind {
+        switch self {
+        case 0:
+            return .zero
+        case let x where x > 0:
+            return .positive
+        default:
+            return .negative
+        }
+    }
+}
+func printIntegerKinds(_ numbers: [Int]) {
+    for number in numbers {
+        switch number.kind {
+        case .negative:
+            print("- ", terminator: "")
+        case .zero:
+            print("0 ", terminator: "")
+        case .positive:
+            print("+ ", terminator: "")
+        }
+    }
+    print("")
+}
+printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
+// Prints "+ + - 0 - 0 + "
+
+
 class SimpleClass: ExampleProtocol {
     var simpleDescription: String = "A very simple class"
     var anotherProperty: Int = 110
@@ -198,10 +302,30 @@ print("decimal语言\(Decimal(123456).formatteds(by: .decimalFormatter))")
 print("台币\(numberint.formatted(.currency(code: "TWD")))")
 print("日币\(numberint.formatted(.currency(code: "JPY")))")
 
+// 构造器  initializers
+struct Size {
+    var width = 0.0, height = 0.0
+}
+struct Point {
+    var x = 0.0, y = 0.0
+}
+struct Rect {
+    var origin = Point()
+    var size = Size()
+}
 struct Cat {
     var name: String
     var color: String
 }
+extension Rect {
+    init(center: Point, size: Size) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
+}
+let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+                      size: Size(width: 3.0, height: 3.0))
 //自定的启动方式 写入到extension 就可以维持两种启动方式 因为在extension里的东西 并不会去影响本来在struct定义完成的内容
 extension Cat {
     enum Color: String{ case 橘色, 黄色, 黑色, 灰色, 白色}

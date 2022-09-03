@@ -9,6 +9,13 @@ var familyMap = family.map{(item:Int) -> String in
 }
 family
 familyMap
+let nums = [1,2,3,4,5]
+let newNums = nums.map { (num) -> Int in
+    let a = num * num
+    print("结果是\(a)")
+    return a
+}
+
 
 
 //可选的可选参数使用起来非常混乱，但这就是 flatMap() 出现的地方：它不仅执行转换，随后将返回的内容展平，因此“可选的可选参数”变为“可选的”。
@@ -34,6 +41,18 @@ print(a)
 print(b)
 // [Optional(1), Optional(2), nil]
 // [1,2]
+
+//初始化一个数组如下
+ var array1 : [String] = [String]()
+// 在声明一个Array类型的时候可以使用下列的语句之一
+var stuArray1:Array<String>
+var stuArray2: [String]
+// 声明的数组需要进行初始化才能使用，数组类型往往是在声明的同时进行初始化的
+// 定义时直接初始化
+//var arrayarray = ["why", "lnj", "lmj"]
+// 先定义,后初始化
+var arrayarray : Array<String>
+arrayarray = ["why", "lnj", "lmj"]
 
 let level = ["A", "B", "C"]
 let map = level.map{$0}

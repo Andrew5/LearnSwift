@@ -93,6 +93,13 @@ removeName(nameIndex: {()->String in return nameArray.remove(at: 0)})
 //上记输出是nameArray first name is li 因为 闭包在执行前 调用的输出语句因此数组中的元素未来的删除
  
  
+let digitNames:[Int:String] = [
+    0: "Zero", 1: "One", 2: "Two",   3: "Three", 4: "Four",
+    5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
+]
+let results = digitNames.map { (key,value) -> String in
+    return "\(value)=\(key)"
+}
  
 //函数声明 参数是一个自动闭包
 func removeNameAuto(nameIndex: @autoclosure ()->String){
@@ -103,7 +110,32 @@ removeNameAuto(nameIndex: nameArray.remove(at: 0))
 //上记输出是auto ameArray first name is yuan 因为removeName中的参数 闭包在执行时删除了一个元素故输出了 yuan
 //自由闭包和逃离闭包相结合
 
- 
+// 逃离闭包：将闭包作为参数传入函数，但在函数返回之后调用这个闭包
+// 将 @escaping 写在参数类型前面，指明该闭包允许逃离函数
+// 闭包逃离的一种方式是将闭包存储在函数体外的变量中
+var completionHandlers: [() -> Void] = []
+func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
+}
+func someFunctionWithNonescapingClosure(closure: () -> Void) {
+    closure()
+}
+class SomeClass {
+    var x = 10
+    func doSomething() {
+        someFunctionWithEscapingClosure { self.x = 100 }
+        someFunctionWithNonescapingClosure { x = 200 }
+    }
+}
+let instance = SomeClass()
+instance.doSomething()
+print(instance.x)
+// Prints "200"
+completionHandlers.first?()
+print(instance.x)
+// Prints "100"
+
+// 闭包逃离
 //声明一个元素是闭包类型数组
 var nameClosureArray:[()->String] = []
 //定义一个函数 函数参数是 自动闭包 且 逃离闭包 的类型的闭包
@@ -123,8 +155,69 @@ print("nameClosureArray have \(nameClosureArray.count) closures.")
 for nca in nameClosureArray{
     print("nameArray first name is \(nca())")
 }
- 
 // 打印nameArray first name is li
 //nameArray first name is yuan
+
+// 闭包可以从定义它的周围上下文中捕获常量和变量， 然后闭包可以引用并修改其体内的常量和变量的值，即使定义常量和变量的原始范围不再存在。
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+    var runningTotal = 0
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incrementer
+}
+// incrementBySeven和incrementByTen是常量
+let incrementByTen = makeIncrementer(forIncrement: 10)
+incrementByTen()
+// returns a value of 10
+incrementByTen()
+// returns a value of 20
+incrementByTen()
+// returns a value of 30
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+incrementBySeven()
+// returns a value of 7
+incrementByTen()
+// returns a value of 40
+// 闭包是引用类型
+let alsoIncrementByTen = incrementByTen
+alsoIncrementByTen()
+// returns a value of 50
+
+incrementByTen()
+// returns a value of 60
+
+// extension可以为类(class)、结构体(structure)和枚举(enumation)添加嵌套类型
+extension Int {
+    enum Kind {
+        case negative, zero, positive
+    }
+    var kind: Kind {
+        switch self {
+        case 0:
+            return .zero
+        case let x where x > 0:
+            return .positive
+        default:
+            return .negative
+        }
+    }
+}
+func printIntegerKinds(_ numbers: [Int]) {// Int类型的数组
+    for number in numbers {
+        switch number.kind {
+        case .negative:
+            print("- ", terminator: "")
+        case .zero:
+            print("0 ", terminator: "")
+        case .positive:
+            print("+ ", terminator: "")
+        }
+    }
+    print("")
+}
+printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
+// Prints "+ + - 0 - 0 + "
 
 //: [Next](@next)
