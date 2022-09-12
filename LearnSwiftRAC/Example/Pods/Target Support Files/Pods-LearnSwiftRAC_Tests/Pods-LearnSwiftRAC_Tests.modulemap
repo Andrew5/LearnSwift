@@ -1,0 +1,6 @@
+framework module Pods_LearnSwiftRAC_Tests {
+  umbrella header "Pods-LearnSwiftRAC_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

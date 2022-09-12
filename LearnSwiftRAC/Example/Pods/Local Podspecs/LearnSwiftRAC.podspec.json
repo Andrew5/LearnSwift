@@ -1,0 +1,33 @@
+{
+  "name": "LearnSwiftRAC",
+  "version": "0.1.0",
+  "summary": "A short description of LearnSwiftRAC.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/jabraknight/LearnSwiftRAC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jabraknight": "localhost3585@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jabraknight/LearnSwiftRAC.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "LearnSwiftRAC/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 6.5.0"
+    ],
+    "RxCocoa": [
+      "~> 6.5.0"
+    ],
+    "SnapKit": [
+      "~> 5.0.1"
+    ]
+  }
+}

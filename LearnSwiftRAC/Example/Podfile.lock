@@ -1,0 +1,97 @@
+PODS:
+  - Cartography (4.0.0)
+  - Dollar (9.0.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Haneke (1.0.2)
+  - iOSSnapshotTestCase (8.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 8.0.0)
+  - iOSSnapshotTestCase/Core (8.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (8.0.0):
+    - iOSSnapshotTestCase/Core
+  - LearnSwiftRAC (0.1.0):
+    - RxCocoa (~> 6.5.0)
+    - RxSwift (~> 6.5.0)
+    - SnapKit (~> 5.0.1)
+  - Nimble (10.0.0)
+  - Nimble-Snapshots (9.4.0):
+    - Nimble-Snapshots/Core (= 9.4.0)
+  - Nimble-Snapshots/Core (9.4.0):
+    - iOSSnapshotTestCase (~> 8.0)
+    - Nimble
+  - Quick (2.2.1)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
+  - SnapKit (5.0.1)
+  - Surge (2.3.2)
+
+DEPENDENCIES:
+  - Cartography
+  - Dollar
+  - FBSnapshotTestCase (~> 2.1.4)
+  - Haneke
+  - LearnSwiftRAC (from `../`)
+  - Nimble (~> 10.0.0)
+  - Nimble-Snapshots (~> 9.4.0)
+  - Quick (~> 2.2.0)
+  - RxBlocking (= 6.5.0)
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - RxTest (= 6.5.0)
+  - SnapKit (= 5.0.1)
+  - Surge
+
+SPEC REPOS:
+  trunk:
+    - Cartography
+    - Dollar
+    - FBSnapshotTestCase
+    - Haneke
+    - iOSSnapshotTestCase
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxTest
+    - SnapKit
+    - Surge
+
+EXTERNAL SOURCES:
+  LearnSwiftRAC:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
+  Dollar: 2fc9bdeeb2d3ae1f251461803240d5c93829ee0c
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
+  iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
+  LearnSwiftRAC: 17dc048f526960c3e7325a6f62575c3748a96934
+  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
+  Nimble-Snapshots: ef281b908c604f78c8313587e25ea92c8ab513d7
+  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Surge: bd84c931a09caa001312ea35059751f2036c49c4
+
+PODFILE CHECKSUM: 9f031da0057947cf8237ad4006c2f939305cf3e2
+
+COCOAPODS: 1.11.3

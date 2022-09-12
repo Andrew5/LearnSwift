@@ -1,0 +1,6 @@
+framework module LearnSwiftRAC {
+  umbrella header "LearnSwiftRAC-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,31 @@
+##忽略.cocoapods中多个specs源引起的警告问题
+install! 'cocoapods', :warn_for_unused_master_specs_repo => false
+
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'LearnSwiftRAC_Example' do
+  pod 'LearnSwiftRAC', :path => '../'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
+  pod 'SnapKit','5.0.1'
+  pod 'Surge' #Surge是一个基于Accelerate框架和C语言开发，用于进行矩阵运算、数学信号处理和图像处理的API。换句话说，就是可以非常快速的处理数学、语音和图像信号
+  pod 'Dollar' #无需扩展任何内置对象就为Swift语言提供有效的函数式编程辅助方法，类似于Lo-Dash或JavaScript中的Underscore。而Cent则是通过扩展功能来扩展Swift中的特定对象类型
+#  pod 'ExSwift' #对标准类型和类的扩展。
+#  pod 'SwiftTask'
+  pod 'Haneke' #一款使用Swift语言编写的，轻量级的iOS通用缓存。它为UIImage、NSData、JSON和String提供记忆和LRU磁盘缓存或其他像数据可以读取或写入的任何其他类型。特别地是，Haneke更擅长处理图像
+  pod 'Cartography' #Cartography是用来声明Swift中的Auto Layout，无需输入任何stringly就可设置自己Auto Layout的约束声明
+  
+  target 'LearnSwiftRAC_Tests' do
+    inherit! :search_paths
+    
+    pod 'RxBlocking', '6.5.0'
+    pod 'RxTest', '6.5.0'
+    
+    pod 'Quick', '~> 2.2.0'
+    pod 'Nimble', '~> 10.0.0'
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+    pod 'Nimble-Snapshots' , '~> 9.4.0'
+  end
+end
