@@ -19,23 +19,7 @@
     "ios": "10.0"
   },
   "source_files": "LearnSwiftRAC/Classes/**/*",
-  "ios": {
-    "vendored_frameworks": "HWMUISDK"
-  },
-  "vendored_libraries": [
-    "iconv.2",
-    "c++.1",
-    "resolv.9",
-    "z.1",
-    "z",
-    "sqlite3.0"
-  ],
-  "libraries": "c++",
-  "xcconfig": {
-    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
-    "CLANG_CXX_LIBRARY": "libc++",
-    "OTHER_LDFLAGS": "-ObjC"
-  },
+  "vendored_frameworks": "*.framework",
   "dependencies": {
     "RxSwift": [
       "~> 6.5.0"

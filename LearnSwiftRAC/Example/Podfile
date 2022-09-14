@@ -5,7 +5,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'LearnSwiftRAC_Example' do
-  pod 'LearnSwiftRAC', :path => '../'
+  pod 'LearnSwiftRAC', :path => '../',:modular_headers => true
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod 'SnapKit','5.0.1'

@@ -36,18 +36,19 @@ TODO: Add long description of the pod here.
   #   'LearnSwiftRAC' => ['LearnSwiftRAC/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.ios.vendored_frameworks = 'HWMMREngine'
-  s.ios.vendored_frameworks = 'HWMUISDK'
+#   s.public_header_files = 'Pod/Classes/**/*.h'
+#  s.ios.vendored_frameworks = 'HWMMREngine'
 #  s.vendored_frameworks = 'HWMMREngine.framework', 'HWMUISDK.framework'
 #  s.libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0','c++'
-  s.vendored_libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0'
-  s.library = 'c++'
-  s.xcconfig = {
-      'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-      'CLANG_CXX_LIBRARY' => 'libc++',
-      'OTHER_LDFLAGS'=>'-ObjC'
-  }
+#  s.vendored_libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0'
+#  s.library = 'c++'
+#  s.xcconfig = {
+#      'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+#      'CLANG_CXX_LIBRARY' => 'libc++',
+#      'OTHER_LDFLAGS'=>'-ObjC'
+#  }
+
+  s.vendored_framework = '*.framework'
   s.dependency 'RxSwift','~> 6.5.0'
   s.dependency 'RxCocoa','~> 6.5.0'
   s.dependency 'SnapKit','~> 5.0.1'
