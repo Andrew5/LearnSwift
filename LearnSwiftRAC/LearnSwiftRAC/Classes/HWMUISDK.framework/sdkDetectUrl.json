@@ -1,0 +1,44 @@
+{
+      "Domains": [
+    {
+      "domain": ""
+    },
+    {
+      "domain": ""
+    },
+    {
+      "domain": "www.vmall.com"
+    },
+    {
+      "domain": "meeting.huaweicloud.com"
+    },
+    {
+      "domain": "121.36.87.157"
+    },
+    {
+      "domain": "121.36.87.158"
+    }
+  ],
+      "FwDetectIp": [
+    {
+      "domain": "www.vmall.com"
+    },
+    {
+      "domain": "121.36.87.158"
+    },
+    {
+      "domain": "121.36.16.94"
+    },
+    {
+      "domain": "121.36.16.94"
+    },
+    {
+      "domain": "121.36.87.158"
+    }
+  ],
+  "audioMaxSize": 5,
+  "audioLevel": 3,
+  "videoMaxSize": 10,
+  "videoLevel": 2
+}
+

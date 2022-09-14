@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>serverAddress</key>
+	<dict>
+		<key>china</key>
+		<string>meeting.huaweicloud.com</string>
+		<key>ap</key>
+		<string>intl.meeting.huaweicloud.com</string>
+	</dict>
+</dict>
+</plist>

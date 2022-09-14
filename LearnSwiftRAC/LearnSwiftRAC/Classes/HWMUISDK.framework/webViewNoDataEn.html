@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>页面错误</title>
+</head>
+
+<style>
+.vote-error {
+    background: #FFFFFF;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.vote-error .head {
+    display: flex;
+    align-items: center;
+    height: 62px;
+    padding: 0 16px;
+}
+.vote-error .head .back {
+  height: 24px;
+  width: 24px;
+}
+.vote-error .empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20%;
+}
+.vote-error .empty .img {
+  height: 167px;
+  width: 165px;
+}
+.vote-error .empty .text {
+  font-size : 14px ;
+  color : #666666 ;
+  letter-spacing : 0 ;
+  text-align: center;
+}
+
+</style>
+<body onselectstart="return false">
+  <div class="vote-error">
+    <div class="head">
+      <img class="back" src="./back.png" onclick="leaveH5()" />
+    </div>
+    <div class="empty">
+      <img class="img" src="./empty.png" />
+      <div id="empty-text" class="text">Viewing failed. Please try again later.</div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+const mo = function(e){
+  e.preventDefault();
+}
+function stop(){
+  document.body.style.overflow='hidden';
+  document.addEventListener("touchmove",mo,{passive:false});//禁止页面滑动
+}
+// 安卓调用客户端事件离开投票h5
+function callAndroid(){
+  vote.exit();
+}
+function isAndroid() {
+  const ua = window.navigator.userAgent.toLowerCase();
+  return /(android)/i.test(ua);
+}
+function isIOS() {
+  const ua = window.navigator.userAgent.toLowerCase();
+  return (
+    /iPad|iPhone|iPod/.test(navigator.platform) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /iphone|ipad|ipod/i.test(ua)
+  );
+}
+
+function leaveH5() {
+  if(isAndroid()) {
+    callAndroid()
+    return
+  }
+  if(isIOS()) {
+    window.location.href = 'inappbrowserref_close_url'
+    return
+  }
+}
+
+</script>

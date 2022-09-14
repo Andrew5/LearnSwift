@@ -1,0 +1,446 @@
+[
+    {
+        "timeZoneID":"25",
+        "timeZoneDesc":"(GMT+00:00) Casablanca, Monrovia",
+        "timeZoneName":"Africa/Monrovia",
+        "timeZone":"GMT"
+    },
+    {
+        "timeZoneID":"26",
+        "timeZoneDesc":"(GMT+00:00) Dublin, Edinburgh, Lisbon, London",
+        "timeZoneName":"Europe/Dublin",
+        "timeZone":"GMT"
+    },
+    {
+        "timeZoneID":"27",
+        "timeZoneDesc":"(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+        "timeZoneName":"Europe/Amsterdam",
+        "timeZone":"GMT+01:00"
+    },
+    {
+        "timeZoneID":"28",
+        "timeZoneDesc":"(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+        "timeZoneName":"Europe/Belgrade",
+        "timeZone":"GMT+01:00"
+    },
+    {
+        "timeZoneID":"29",
+        "timeZoneDesc":"(GMT+01:00) Brussels, Copenhagen, Madrid, Paris",
+        "timeZoneName":"Europe/Brussels",
+        "timeZone":"GMT+01:00"
+    },
+    {
+        "timeZoneID":"30",
+        "timeZoneDesc":"(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+        "timeZoneName":"Europe/Sarajevo",
+        "timeZone":"GMT+01:00"
+    },
+    {
+        "timeZoneID":"31",
+        "timeZoneDesc":"(GMT+01:00) West Central Africa",
+        "timeZoneName":"Africa/Lagos",
+        "timeZone":"GMT+01:00"
+    },
+    {
+        "timeZoneID":"32",
+        "timeZoneDesc":"(GMT+02:00) Athens, Vilnius",
+        "timeZoneName":"Europe/Athens",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"33",
+        "timeZoneDesc":"(GMT+02:00) Bucharest",
+        "timeZoneName":"Europe/Bucharest",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"34",
+        "timeZoneDesc":"(GMT+02:00) Cairo",
+        "timeZoneName":"Africa/Cairo",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"35",
+        "timeZoneDesc":"(GMT+02:00) Harare, Pretoria",
+        "timeZoneName":"Africa/Harare",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"36",
+        "timeZoneDesc":"(GMT+02:00) Helsinki, Riga, Tallinn",
+        "timeZoneName":"Europe/Helsinki",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"37",
+        "timeZoneDesc":"(GMT+02:00) Jerusalem",
+        "timeZoneName":"Asia/Jerusalem",
+        "timeZone":"GMT+02:00"
+    },
+    {
+        "timeZoneID":"38",
+        "timeZoneDesc":"(GMT+03:00) Baghdad, Minsk",
+        "timeZoneName":"Europe/Minsk",
+        "timeZone":"GMT+03:00"
+    },
+    {
+        "timeZoneID":"39",
+        "timeZoneDesc":"(GMT+03:00) Kuwait, Riyadh",
+        "timeZoneName":"Asia/Riyadh",
+        "timeZone":"GMT+03:00"
+    },
+    {
+        "timeZoneID":"40",
+        "timeZoneDesc":"(GMT+03:00) Moscow, St. Petersburg",
+        "timeZoneName":"Europe/Moscow",
+        "timeZone":"GMT+03:00"
+    },
+    {
+        "timeZoneID":"41",
+        "timeZoneDesc":"(GMT+03:00) Nairobi, Istanbul",
+        "timeZoneName":"Africa/Nairobi",
+        "timeZone":"GMT+03:00"
+    },
+    {
+        "timeZoneID":"43",
+        "timeZoneDesc":"(GMT+04:00) Abu Dhabi, Muscat, Volgograd",
+        "timeZoneName":"Asia/Muscat",
+        "timeZone":"GMT+04:00"
+    },
+    {
+        "timeZoneID":"44",
+        "timeZoneDesc":"(GMT+04:00) Baku, Tbilisi, Yerevan",
+        "timeZoneName":"Asia/Baku",
+        "timeZone":"GMT+04:00"
+    },
+    {
+        "timeZoneID":"45",
+        "timeZoneDesc":"(GMT+04:30) Kabul",
+        "timeZoneName":"Asia/Kabul",
+        "timeZone":"GMT+04:30"
+    },
+    {
+        "timeZoneID":"46",
+        "timeZoneDesc":"(GMT+05:00) Ekaterinburg",
+        "timeZoneName":"Asia/Yekaterinburg",
+        "timeZone":"GMT+05:00"
+    },
+    {
+        "timeZoneID":"47",
+        "timeZoneDesc":"(GMT+05:00) Islamabad, Karachi, Tashkent",
+        "timeZoneName":"Asia/Karachi",
+        "timeZone":"GMT+05:00"
+    },
+    {
+        "timeZoneID":"48",
+        "timeZoneDesc":"(GMT+05:30) Kolkata, Chennai, Mumbai, New Delhi",
+        "timeZoneName":"Asia/Calcutta",
+        "timeZone":"GMT+05:30"
+    },
+    {
+        "timeZoneID":"52",
+        "timeZoneDesc":"(GMT+05:30) Sri Jayawardenepura",
+        "timeZoneName":"Asia/Colombo",
+        "timeZone":"GMT+05:30"
+    },
+    {
+        "timeZoneID":"49",
+        "timeZoneDesc":"(GMT+05:45) Kathmandu",
+        "timeZoneName":"Asia/Kathmandu",
+        "timeZone":"GMT+05:45"
+    },
+    {
+        "timeZoneID":"50",
+        "timeZoneDesc":"(GMT+06:00) Almaty",
+        "timeZoneName":"Asia/Almaty",
+        "timeZone":"GMT+06:00"
+    },
+    {
+        "timeZoneID":"51",
+        "timeZoneDesc":"(GMT+06:00) Astana, Dhaka",
+        "timeZoneName":"Asia/Dhaka",
+        "timeZone":"GMT+06:00"
+    },
+    {
+        "timeZoneID":"53",
+        "timeZoneDesc":"(GMT+06:30) Yangon (Rangoon)",
+        "timeZoneName":"Asia/Rangoon",
+        "timeZone":"GMT+06:30"
+    },
+    {
+        "timeZoneID":"54",
+        "timeZoneDesc":"(GMT+07:00) Bangkok, Hanoi, Jakarta",
+        "timeZoneName":"Asia/Bangkok",
+        "timeZone":"GMT+07:00"
+    },
+    {
+        "timeZoneID":"55",
+        "timeZoneDesc":"(GMT+07:00) Novosibirsk, Krasnoyarsk",
+        "timeZoneName":"Asia/Krasnoyarsk",
+        "timeZone":"GMT+07:00"
+    },
+    {
+        "timeZoneID":"56",
+        "timeZoneDesc":"(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi, Taipei",
+        "timeZoneName":"Asia/Shanghai",
+        "timeZone":"GMT+08:00"
+    },
+    {
+        "timeZoneID":"74",
+        "timeZoneDesc":"(GMT+08:00) Irkutsk",
+        "timeZoneName":"Asia/Irkutsk",
+        "timeZone":"GMT+08:00"
+    },
+    {
+        "timeZoneID":"58",
+        "timeZoneDesc":"(GMT+08:00) Kuala Lumpur, Singapore",
+        "timeZoneName":"Asia/Singapore",
+        "timeZone":"GMT+08:00"
+    },
+    {
+        "timeZoneID":"59",
+        "timeZoneDesc":"(GMT+08:00) Perth",
+        "timeZoneName":"Australia/Perth",
+        "timeZone":"GMT+08:00"
+    },
+    {
+        "timeZoneID":"57",
+        "timeZoneDesc":"(GMT+08:00) Ulaanbaatar",
+        "timeZoneName":"Asia/Ulan_Bator",
+        "timeZone":"GMT+08:00"
+    },
+    {
+        "timeZoneID":"60",
+        "timeZoneDesc":"(GMT+09:00) Osaka, Sapporo, Tokyo",
+        "timeZoneName":"Asia/Tokyo",
+        "timeZone":"GMT+09:00"
+    },
+    {
+        "timeZoneID":"61",
+        "timeZoneDesc":"(GMT+09:00) Seoul",
+        "timeZoneName":"Asia/Seoul",
+        "timeZone":"GMT+09:00"
+    },
+    {
+        "timeZoneID":"62",
+        "timeZoneDesc":"(GMT+09:00) Yakutsk",
+        "timeZoneName":"Asia/Yakutsk",
+        "timeZone":"GMT+09:00"
+    },
+    {
+        "timeZoneID":"63",
+        "timeZoneDesc":"(GMT+09:30) Adelaide",
+        "timeZoneName":"Australia/Adelaide",
+        "timeZone":"GMT+09:30"
+    },
+    {
+        "timeZoneID":"64",
+        "timeZoneDesc":"(GMT+09:30) Darwin",
+        "timeZoneName":"Australia/Darwin",
+        "timeZone":"GMT+09:30"
+    },
+    {
+        "timeZoneID":"65",
+        "timeZoneDesc":"(GMT+10:00) Brisbane",
+        "timeZoneName":"Australia/Brisbane",
+        "timeZone":"GMT+10:00"
+    },
+    {
+        "timeZoneID":"66",
+        "timeZoneDesc":"(GMT+10:00) Canberra, Melbourne, Sydney",
+        "timeZoneName":"Australia/Canberra",
+        "timeZone":"GMT+10:00"
+    },
+    {
+        "timeZoneID":"67",
+        "timeZoneDesc":"(GMT+10:00) Guam, Port Moresby",
+        "timeZoneName":"Pacific/Guam",
+        "timeZone":"GMT+10:00"
+    },
+    {
+        "timeZoneID":"68",
+        "timeZoneDesc":"(GMT+10:00) Hobart",
+        "timeZoneName":"Australia/Hobart",
+        "timeZone":"GMT+10:00"
+    },
+    {
+        "timeZoneID":"69",
+        "timeZoneDesc":"(GMT+10:00) Vladivostok",
+        "timeZoneName":"Asia/Vladivostok",
+        "timeZone":"GMT+10:00"
+    },
+    {
+        "timeZoneID":"70",
+        "timeZoneDesc":"(GMT+11:00) Magadan, Solomon Is., New Caledonia",
+        "timeZoneName":"Asia/Magadan",
+        "timeZone":"GMT+11:00"
+    },
+    {
+        "timeZoneID":"71",
+        "timeZoneDesc":"(GMT+12:00) Auckland, Welington",
+        "timeZoneName":"Pacific/Auckland",
+        "timeZone":"GMT+12:00"
+    },
+    {
+        "timeZoneID":"72",
+        "timeZoneDesc":"(GMT+12:00) Fiji",
+        "timeZoneName":"Pacific/Fiji",
+        "timeZone":"GMT+12:00"
+    },
+    {
+        "timeZoneID":"77",
+        "timeZoneDesc":"(GMT+12:00) Petropavlovsk-Kamchatsky, Marshall Is.",
+        "timeZoneName":"Asia/Kamchatka",
+        "timeZone":"GMT+12:00"
+    },
+    {
+        "timeZoneID":"73",
+        "timeZoneDesc":"(GMT+13:00) Nuku'alofa",
+        "timeZoneName":"Pacific/Fakaofo",
+        "timeZone":"GMT+13:00"
+    },
+    {
+        "timeZoneID":"23",
+        "timeZoneDesc":"(GMT-01:00) Azores",
+        "timeZoneName":"Atlantic/Azores",
+        "timeZone":"GMT-01:00"
+    },
+    {
+        "timeZoneID":"24",
+        "timeZoneDesc":"(GMT-01:00) Cape Verde Is.",
+        "timeZoneName":"Atlantic/Cape_Verde",
+        "timeZone":"GMT-01:00"
+    },
+    {
+        "timeZoneID":"22",
+        "timeZoneDesc":"(GMT-02:00) Coordinated Universal Time-02",
+        "timeZoneName":"Atlantic/South_Georgia",
+        "timeZone":"GMT-02:00"
+    },
+    {
+        "timeZoneID":"19",
+        "timeZoneDesc":"(GMT-03:00) Brasilia",
+        "timeZoneName":"Brazil/East",
+        "timeZone":"GMT-03:00"
+    },
+    {
+        "timeZoneID":"20",
+        "timeZoneDesc":"(GMT-03:00) Buenos Aires",
+        "timeZoneName":"Atlantic/Stanley",
+        "timeZone":"GMT-03:00"
+    },
+    {
+        "timeZoneID":"21",
+        "timeZoneDesc":"(GMT-03:00) Greenland",
+        "timeZoneName":"America/Godthab",
+        "timeZone":"GMT-03:00"
+    },
+    {
+        "timeZoneID":"18",
+        "timeZoneDesc":"(GMT-03:30) Newfoundland",
+        "timeZoneName":"Canada/Newfoundland",
+        "timeZone":"GMT-03:30"
+    },
+    {
+        "timeZoneID":"15",
+        "timeZoneDesc":"(GMT-04:00) Atlantic time (Canada)",
+        "timeZoneName":"Canada/Atlantic",
+        "timeZone":"GMT-04:00"
+    },
+    {
+        "timeZoneID":"16",
+        "timeZoneDesc":"(GMT-04:00) Caracas, La Paz",
+        "timeZoneName":"America/Caracas",
+        "timeZone":"GMT-04:00"
+    },
+    {
+        "timeZoneID":"17",
+        "timeZoneDesc":"(GMT-04:00) Santiago",
+        "timeZoneName":"America/Santiago",
+        "timeZone":"GMT-04:00"
+    },
+    {
+        "timeZoneID":"12",
+        "timeZoneDesc":"(GMT-05:00) Bogota, Lima, Quito",
+        "timeZoneName":"America/Lima",
+        "timeZone":"GMT-05:00"
+    },
+    {
+        "timeZoneID":"13",
+        "timeZoneDesc":"(GMT-05:00) Eastern Time (US & Canada)",
+        "timeZoneName":"America/New_York",
+        "timeZone":"GMT-05:00"
+    },
+    {
+        "timeZoneID":"14",
+        "timeZoneDesc":"(GMT-05:00) Indiana (East)",
+        "timeZoneName":"US/East-Indiana",
+        "timeZone":"GMT-05:00"
+    },
+    {
+        "timeZoneID":"8",
+        "timeZoneDesc":"GMT-06:00) Central America",
+        "timeZoneName":"America/Guatemala",
+        "timeZone":"GMT-06:00"
+    },
+    {
+        "timeZoneID":"9",
+        "timeZoneDesc":"GMT-06:00) Central Time (US & Canada)",
+        "timeZoneName":"US/Central",
+        "timeZone":"GMT-06:00"
+    },
+    {
+        "timeZoneID":"10",
+        "timeZoneDesc":"(GMT-06:00) Mexico City",
+        "timeZoneName":"America/Mexico_City",
+        "timeZone":"GMT-06:00"
+    },
+    {
+        "timeZoneID":"11",
+        "timeZoneDesc":"(GMT-06:00) Saskatchewan",
+        "timeZoneName":"Canada/Saskatchewan",
+        "timeZone":"GMT-06:00"
+    },
+    {
+        "timeZoneID":"6",
+        "timeZoneDesc":"(GMT-07:00) Arizona",
+        "timeZoneName":"US/Arizona",
+        "timeZone":"GMT-07:00"
+    },
+    {
+        "timeZoneID":"7",
+        "timeZoneDesc":"(GMT-07:00) Mountain Time (US & Canada)",
+        "timeZoneName":"US/Mountain",
+        "timeZone":"GMT-07:00"
+    },
+    {
+        "timeZoneID":"5",
+        "timeZoneDesc":"(GMT-08:00) Pacific Time (US & Canada)",
+        "timeZoneName":"Canada/Pacific",
+        "timeZone":"GMT-08:00"
+    },
+    {
+        "timeZoneID":"4",
+        "timeZoneDesc":"(GMT-09:00) Alaska",
+        "timeZoneName":"US/Alaska",
+        "timeZone":"GMT-09:00"
+    },
+    {
+        "timeZoneID":"3",
+        "timeZoneDesc":"(GMT-10:00) Hawaii",
+        "timeZoneName":"US/Hawaii",
+        "timeZone":"GMT-10:00"
+    },
+    {
+        "timeZoneID":"2",
+        "timeZoneDesc":"(GMT-11:00) Midway Island, Samoa",
+        "timeZoneName":"US/Samoa",
+        "timeZone":"GMT-11:00"
+    },
+    {
+        "timeZoneID":"1",
+        "timeZoneDesc":"(GMT-12:00) Eniwetok, Kwajalein",
+        "timeZoneName":"Etc/GMT+12",
+        "timeZone":"GMT-12:00"
+    }
+]

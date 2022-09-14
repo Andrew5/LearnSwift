@@ -1,0 +1,80 @@
+{
+  "Domains": [
+    {
+      "domain": "meeting.huaweicloud.com",
+      "fixIp": "119.3.230.210;139.159.193.227",
+      "successIp": ""
+    },
+    {
+      "domain": "meeting.huaweicloud.cn",
+      "fixIp": "119.3.230.210;139.159.193.227",
+      "successIp": ""
+    },
+    {
+      "domain": "r1.meeting.huaweicloud.com",
+      "fixIp": "119.3.236.149",
+      "successIp": ""
+    },
+	{
+      "domain": "r1.meeting.huaweicloud.cn",
+      "fixIp": "119.3.236.149",
+      "successIp": ""
+    },
+    {
+      "domain": "r2.meeting.huaweicloud.com",
+      "fixIp": "139.9.190.5",
+      "successIp": ""
+    },
+	{
+      "domain": "r2.meeting.huaweicloud.cn",
+      "fixIp": "139.9.190.5",
+      "successIp": ""
+    },
+    {
+      "domain": "r3.meeting.huaweicloud.com",
+      "fixIp": "49.4.27.189",
+      "successIp": ""
+    },
+	{
+      "domain": "r3.meeting.huaweicloud.cn",
+      "fixIp": "49.4.27.189",
+      "successIp": ""
+    },
+    {
+      "domain": "im.welink.huaweicloud.com",
+      "fixIp": "119.3.179.96",
+      "successIp": ""
+    },
+    {
+      "domain": "intl.meeting.huaweicloud.com",
+      "fixIp": "124.71.4.93",
+      "successIp": ""
+    },
+	{
+      "domain": "intl.meeting.huaweicloud.cn",
+      "fixIp": "124.71.4.93",
+      "successIp": ""
+    },
+    {
+      "domain": "r-ap-southeast-1.meeting.huaweicloud.com",
+      "fixIp": "159.138.51.65",
+      "successIp": ""
+    },
+	{
+      "domain": "r-ap-southeast-1.meeting.huaweicloud.cn",
+      "fixIp": "159.138.51.65",
+      "successIp": ""
+    },
+    {
+      "domain": "im-intl.meeting.huaweicloud.com",
+      "fixIp": "119.8.35.65",
+      "successIp": ""
+    },
+	{
+      "domain": "im-intl.meeting.huaweicloud.cn",
+      "fixIp": "119.8.35.65",
+      "successIp": ""
+    }
+  ]
+}
+

@@ -1,0 +1,6 @@
+framework module HWMUISDK {
+  umbrella header "HWMUISDK.h"
+
+  export *
+  module * { export * }
+}

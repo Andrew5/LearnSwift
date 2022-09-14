@@ -1,0 +1,12 @@
+{
+  "globalsignDomain": "http://crl.globalsign.com/",
+  "audio_faq_link_info": "https://support.huaweicloud.com/meeting_faq/audio_video_fault.html",
+  "hwc_domain": "www.huaweicloud.com",
+  "hwm_domain": "meeting.huaweicloud.com",
+  "cec_domain": "cloudec.huaweicloud.com",
+  "iwh_domain": "im.welink.huaweicloud.com",
+  "swh_domain": "space.welink.huaweicloud.com",
+  "rcm_domain": "recovery.cloudrtc.myhuaweicloud.com",
+  "cm_domain": ".cloudrtc.myhuaweicloud.com"
+}
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>hostServerAddresss</key>
+	<string>im.welink.huaweicloud.com</string>
+	<key>hostServerPort</key>
+	<string>443</string>
+	<key>grayUserAddress</key>
+	<string>im.welink.huaweicloud.com</string>
+</dict>
+</plist>
