@@ -53,9 +53,22 @@ var stuArray2: [String]
 // 先定义,后初始化
 var arrayarray : Array<String>
 arrayarray = ["why", "lnj", "lmj"]
-
+//TODO: map 使用
 let level = ["A", "B", "C"]
 let map = level.map{$0}
+let stringArray = ["Objective", "Swift", "HT", "CS", "Java"]
+let arrayCount = stringArray.map { (str) -> Int in
+    return str.count
+}
+let arraArr: [Any?] = [0,1,2,4,5,nil,"abc",9,"109"]
+let arrInt = arraArr.map { (obj) -> Int in
+    if obj is Int {
+        return obj as! Int
+    } else {
+        return 0
+    }
+}
+print("arrInt: \(arrInt)")
 let flatMap = level.flatMap{$0}
 let compactMap = level.compactMap{$0}
 

@@ -306,6 +306,27 @@ extension MainViewController : OptionalProtocol,OptionalNewProtocol {
 
 }
 
+struct PackageInfo{
+    var name:String
+    var number:Int
+    var price:Float
+    var address:String
+}
+extension MainViewController {
+    func testStore(){
+        let testInfo = [
+            PackageInfo(name: "测试1", number: 1, price: 1111, address: "阿西西"),
+            PackageInfo(name: "测试2", number: 2, price: 882.0, address: "哈哈"),
+            PackageInfo(name: "测试3", number: 3, price: 35.0, address: "7哈哈"),
+            PackageInfo(name: "测试4", number: 4, price: 50.0, address: "oo")
+        ]
+        let testDemo = testInfo.filter{(package) -> Bool in
+            return package.price == 111
+        }
+        print(testDemo)
+
+    }
+}
 //extension  MainViewController: UITextFieldDelegate {
 //    private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 //        print("将要开始编辑")

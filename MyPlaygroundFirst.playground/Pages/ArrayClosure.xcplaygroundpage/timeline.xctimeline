@@ -2,5 +2,10 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/jabraknight/Documents/zkty/customer/LearnSwift/MyPlaygroundFirst.playground/Pages/ArrayClosure.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=1664&amp;EndingColumnNumber=0&amp;EndingLineNumber=61&amp;StartingColumnNumber=12&amp;StartingLineNumber=60&amp;Timestamp=684953683.1244791"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>
