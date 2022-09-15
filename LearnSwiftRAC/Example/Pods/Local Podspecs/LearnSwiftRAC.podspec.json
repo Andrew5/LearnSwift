@@ -19,6 +19,9 @@
     "ios": "10.0"
   },
   "source_files": "LearnSwiftRAC/Classes/**/*",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
   "vendored_frameworks": "*.framework",
   "dependencies": {
     "RxSwift": [

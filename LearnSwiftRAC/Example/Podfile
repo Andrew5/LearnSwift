@@ -18,7 +18,7 @@ target 'LearnSwiftRAC_Example' do
   
   target 'LearnSwiftRAC_Tests' do
     inherit! :search_paths
-    
+   
     pod 'RxBlocking', '6.5.0'
     pod 'RxTest', '6.5.0'
     
@@ -27,4 +27,15 @@ target 'LearnSwiftRAC_Example' do
     pod 'FBSnapshotTestCase' , '~> 2.1.4'
     pod 'Nimble-Snapshots' , '~> 9.4.0'
   end
+end
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+    config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+#     if target.name == "LearnSwiftRAC"
+       config.build_settings['ENABLE_BITCODE'] = 'NO'
+#      end
+    end
+   end
 end

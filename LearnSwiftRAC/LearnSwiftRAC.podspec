@@ -42,11 +42,13 @@ TODO: Add long description of the pod here.
 #  s.libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0','c++'
 #  s.vendored_libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0'
 #  s.library = 'c++'
-#  s.xcconfig = {
+#  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+  s.xcconfig = {
 #      'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
 #      'CLANG_CXX_LIBRARY' => 'libc++',
-#      'OTHER_LDFLAGS'=>'-ObjC'
-#  }
+      'OTHER_LDFLAGS'=>'-ObjC',
+#      'ENABLE_BITCODE' => 'NO'
+  }
 
   s.vendored_framework = '*.framework'
   s.dependency 'RxSwift','~> 6.5.0'
