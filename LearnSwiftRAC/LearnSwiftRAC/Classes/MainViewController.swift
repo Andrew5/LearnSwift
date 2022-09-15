@@ -10,7 +10,10 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-
+// open:可以在任何地方访问、继承和重写，访问权限最高
+// public:可以在任何地方被访问，在其他module中不能被继承和重写
+// internal:默认访问级别，在整个模块内都可以被访问，内部的,默认的权限范围，即不写的时候默认是internal修饰的，在同一module可以访问，
+// fileprivate:其修饰的属性可以在同一个文件被访问、继承和重写，同一个文件指同一个swift文件，一个文件中可以有多个类，一个.swift文件下
 public class MainViewController : UIViewController {
     
     var addBtn = UIButton(type: .custom)
@@ -241,10 +244,66 @@ public class MainViewController : UIViewController {
     
     func buttonClick() {
         print("按钮点击")
+        
+        // 面的代码将导致编译器错误，因为Swift现在可以看到，当我们调用doSomething（using :)时，传递给该函数的闭包将转义其范围。这意味着我们需要将其标记为故意的，因此doSomething（using :)的调用者将知道他们正在处理一个闭包，该闭包将超过传递给它的函数的范围，这意味着他们需要采取措施预防循环引用或内存泄露。除了向调用者告知转义闭包doSomething（using :)之外，它还告诉Swift编译器我们知道闭包保留了传递给它的作用域，
+//        var x = 10
+//        doSomething(using: { x = 100 })
+     // doSomething(using:{这里是自定义内容})
+        doSomething {
+            print("按钮点击")
+        }
+    }
+    // 非转义闭包
+    // 传递给doSomething（using :)的闭包在doSomething（using :)函数中立即执行
+    // using 是closure的别名
+    // 匿名函数 类型为  () -> Void，closure是形参, ()->void 是参数类型
+    // doSomething(using:{这里是自定义内容})，通过尾随闭包特性可以简写成 dosomething{这里是自定义内容}
+    func doSomething(using closure:()->Void) {
+        closure()
+//        DispatchQueue.main.async {
+//            closure()
+//        }
     }
     public override func didReceiveMemoryWarning() {
         
     }
+}
+// TODO: 可选协议方法
+// 如果我们想要像Objective-C 里那样定义可选的协议方法，就需要将协议本身和可选方法都定义为Objective-C的，也即在 protocol 定义之前以及协议方法之前加上 @optional。
+@objc protocol OptionalProtocol {
+    @objc optional func optionalMethod()
+}
+// 对于所有的声明，它们的前缀修饰是完全分开的，必须对每一个可选方法添加前缀，对于没有前缀的方法来说，它们是默认必须实现的。
+@objc protocol OprionalProtocol {
+    @objc optional func optionalMethod()//可选
+    func necessaryMethod()//必须实现
+    @objc optional func anotherOptionalMethod()//可选
+}
+protocol OptionalNewProtocol {
+    func method1()
+    func method2()
+    func method3()
+}
+extension OptionalNewProtocol {
+    func method1(){
+        print("可选方法");
+    }
+    func method2(){
+        print("可选方法");
+    }
+}
+
+extension MainViewController : OptionalProtocol,OptionalNewProtocol {
+    func necessaryMethod(){
+        print("必须实现方法");
+    }
+    func optionalMethod() {
+        print("可选方法");
+    }
+    func method3(){
+        print("必须实现方法");
+    }
+
 }
 
 //extension  MainViewController: UITextFieldDelegate {

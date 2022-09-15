@@ -75,6 +75,22 @@ let even = numbers.filter{(num) -> Bool in
 numbers
 evens
 even
+let array = [1,2,3,4]
+let filteredArray = array.filter{$0 > 2}//$0代表闭包的第n+1个参数（这里代表数组中的元素）
+print(filteredArray)//[3, 4]
+// filter方法参数是一个闭包，闭包返回值是Bool类型，当满足筛选条件的时闭包才有返回值，filter返回值是一个<T>的泛型数组
+let filteredArray1 = array.filter{(newParams) -> Bool in
+    newParams % 2 == 0
+}
+filteredArray1
+// 👆等同于👇
+var tempArr = [Int]()
+for s in array {
+    if s > 2 {
+    tempArr.append(s)
+    }
+}
+print(tempArr)
 //筛选奇数值
 let odds = numbers.filter{$0 % 2 == 1} //等同于
 let odd = numbers.filter{(num) -> Bool in
