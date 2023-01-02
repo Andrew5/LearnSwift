@@ -323,4 +323,19 @@ var timer = Timer.scheduledTimer(timeInterval: 0,
 timer.fire()
 
 
+class Pipe: FileHandle {
+
+}
+class Process {
+    var launchPath = String()
+    var arguments = [String]()
+    var standardOutput = Pipe()
+    func launch(){
+        
+    }
+    func waitUntilExit(){
+        
+    }
+}
+
 

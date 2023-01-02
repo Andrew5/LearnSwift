@@ -27,16 +27,18 @@ func sayHello3() {
 }
 
 
-//注释链接：https://swift.org/documentation/api-design-guidelines/
+//注释链接：https://swift.org/documentatior/api-design-guidelines/
 
 /// 返回元组：实现多返回值【概述】
+///
+/// 将2个整数相加【更详细的描述】
 ///
 /// - Parameter v1:第一个整数
 /// - Parameter v2:第二个整数
 /// - Returns: 2个整数的和
 ///
 /// - Note: 传入2个整数即可【批注】
-/// v1,v2  : 参数标签
+///             v1: 参数标签 v2: 参数标签
 func calculate (v1: Int, v2: Int) -> /*定义返回值类型：元组*/(sum: Int, difference: Int,avaerage: Int) {
     let sum = v1 + v2
           //和    差      和右移一位：平均值(和/2)
@@ -47,7 +49,7 @@ result.sum
 result.difference
 result.avaerage
 ///参数标签 Argument Label
-            //参数 at形参用在外面 time形参用在内部
+        //参数 at参数标签用在外面, time形参名称用在函数体内部
 func goToWork(at time:String) {//(time:String)
     print("this time is\(time)")//print("this time is\(at)")
 }
@@ -61,20 +63,21 @@ func sumf(_ v1: Int, _ v2: Int) -> Int {
 sumf(10, 20)
 
 //默认值参数值(Default Parameter Value)
-func check(name: String = "nobody", age: Int, job: String = "none") {
+func check(name: String = "nobody", age: Int = 1, job: String = "none") {
     print("name=\(name),age=\(age),job=\(job)")
 }
 check(name: "Jack", age: 20, job: "Doctor")
 check(name: "Rose", age: 18)
 check(age: 10, job: "Docter")
 check(age: 15)//age 标签
+check()
 //swift拥有参数标签，因此没有此类限制，省略标签反之
 
 
 //可变参数
 //...可变参数 可以传很多个Int类型
 //一个函数最多只能有1个可变参数
-//紧跟在可变参数后面的参数不能省略参数标签
+//紧跟在可变参数后面的参数不能(书写参数标签)省略参数标签
 func sumMutable(_ numbers: Int... , string: String, _ other: String) -> Int {
     var total = 0
     for number in numbers {//numbers 数组

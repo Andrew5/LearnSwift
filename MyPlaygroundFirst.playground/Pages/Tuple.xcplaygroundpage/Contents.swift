@@ -21,7 +21,7 @@ justStatusCode
 var name = (my:"today",last:"swift")
 name.0
 name.my
-
+                    //标签            //标签
 let http200Status = (statusCode:200, description:"OK")
 http200Status.statusCode
 http200Status.description
@@ -45,6 +45,7 @@ case let(x,y):
 //where
 let point1 = (1,-1)
 switch point1 {
+     // 先赋值 条件判断
 case let(x,y) where x == y:
     print("on the line x == y")
 case let(x,y) where x == -y:

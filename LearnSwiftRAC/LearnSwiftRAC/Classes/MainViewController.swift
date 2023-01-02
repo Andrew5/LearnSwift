@@ -240,8 +240,19 @@ public class MainViewController : UIViewController {
     //       print((change?[.newKey])!)
     //        print("按钮点击")
     //    }
-    
-    
+    // 逃逸闭包 当一个函数将闭包作为参数传递给函数时
+    // 当一个闭包 “逃逸” 出函数时，这意味着这个闭包在函数返回之后仍然可以被执行。这种情况通常发生在将闭包作为函数的返回值时，或者将闭包存储在变量中，这样在函数执行完毕后就可以继续访问。
+    // 为了表示一个闭包是逃逸的，我们在定义闭包时需要在参数列表前面加上 @escaping 关键字。
+    func nmlgb(task: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            task()
+            /*
+             逃逸闭包常常用在异步函数中，因为在异步函数中闭包可能在函数执行完毕之后才被执行。因为闭包可能在函数执行完毕后才被执行，所以必须将闭包标记为逃逸，否则编译器会报错。
+             在 Swift 中，默认情况下，闭包是非逃逸的。这意味着在函数执行完毕之后就不能再访问闭包。这种限制有助于提高程序的效率，因为编译器可以在函数执行完毕后立即释放闭包所占用的内存。
+             在需要将闭包作为函数的返回值或者将闭包存储在变
+             */
+        }
+    }
     func buttonClick() {
         print("按钮点击")
         
@@ -263,6 +274,89 @@ public class MainViewController : UIViewController {
 //        DispatchQueue.main.async {
 //            closure()
 //        }
+    }
+    // 富文本
+    func test3(contentString: String = "测绘｜测试文字数量 #标签测试 #未知 #数量不知道") {
+//        let contentString: String = "测绘｜测试文字数量 #标签测试 #未知 #数量不知道"
+        
+        var contentLabel = UILabel()
+        contentLabel.frame = CGRect(x: 20, y: 100, width: UIScreen.main.bounds.size.width-40, height: 60)
+        contentLabel.numberOfLines = 2
+        self.view .addSubview(contentLabel)
+        
+//        let attrStrMain = NSMutableAttributedString.init(string: contentString)
+//        attrStrMain.addAttribute(NSAttributedStringKey.foregroundColor, value:UIColor.orange, range:NSRange.init(location:0, length: 8))
+//        attrStrMain.addAttribute(NSAttributedStringKey.foregroundColor, value:UIColor.red, range:NSRange.init(location:9, length: 8))
+//        contentLabel.attributedText = attrStr
+        
+        // 不知道还有几个标签
+        // for 循环#数组 设置富文本 拼接富文本
+        var targetString: [String] = contentString.components(separatedBy: "#")
+        print("-------\(targetString)")//["测绘｜测试文字数量 ", "标签测试 ", "未知 ", "数量不知道"]
+        
+        let heightOfPersonFilter = targetString.filter{(height:String) -> Bool in
+            print("-height------\(height)")
+            return height != targetString[0]
+        }
+        print("筛选-------\(heightOfPersonFilter) \(targetString[0])")
+        let attributedStrM : NSMutableAttributedString = NSMutableAttributedString()
+        
+        var stringNew = heightOfPersonFilter.joined(separator: "#")
+        stringNew = "#" + stringNew
+        print("新字符串-------\(stringNew)")
+        
+        let shuaibi2: NSAttributedString = NSAttributedString(string: targetString[0], attributes: [NSAttributedString.Key.foregroundColor : UIColor.orange, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)])
+        attributedStrM.append(shuaibi2)
+
+        let shuaibi1: NSAttributedString = NSAttributedString(string: stringNew, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)])
+        attributedStrM.append(shuaibi1)
+        
+        contentLabel.attributedText = attributedStrM
+       
+      
+        
+        
+        var arrayNew = [String]()
+        for obj in 0..<targetString.count {
+            if obj > 0 {
+                arrayNew.append(targetString[obj])
+            }
+        }
+        print("新数组-------\(arrayNew)")
+
+        
+        
+        
+        // 失败
+
+        let targetNewArr = targetString.remove(at: 0)
+        print("-------\(targetNewArr)")//测绘｜测试文字数量
+
+        let targetNewArra = targetString.removeFirst()
+        print("-------\(targetNewArra)")//测绘｜测试文字数量
+        var chars:[Character] = ["a","b","c","d"]
+        print("-------\(chars)")//["a", "b", "c", "d"]
+        let removedChar = chars.remove(at: 1)
+        print("-------\(removedChar)")//b
+        // 成功
+        var animals = ["cats", "dogs", "chimps", "moose"]
+        animals.remove(at: 2)  //["cats", "dogs", "moose"]
+        print("-------\(animals)")//a
+        
+        let removedChar2 = chars.removeFirst()
+        print("-------\(removedChar2)")//a
+
+
+
+//        let heightOfPersonFilter = targetString.filter{(height:String) -> Bool in
+//            return height > 180
+//        }
+        
+//        var targetStringA: [String] = [""]
+//        for i in 0...targetString.count{
+//            targetStringA.append(contentsOf: targetString[i])
+//        }
+        
     }
     public override func didReceiveMemoryWarning() {
         
@@ -363,3 +457,4 @@ extension MainViewController {
 //        return true
 //    }
 //}
+

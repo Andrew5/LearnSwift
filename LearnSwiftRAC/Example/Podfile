@@ -6,13 +6,26 @@ platform :ios, '10.0'
 
 target 'LearnSwiftRAC_Example' do
   pod 'LearnSwiftRAC', :path => '../',:modular_headers => true
-  pod 'RxSwift', '6.5.0'
+  pod 'RxSwift', '6.5.0'#用于响应式编程的库。
   pod 'RxCocoa', '6.5.0'
-  pod 'SnapKit','5.0.1'
+  pod 'R.swift'
+  pod 'SnapKit','5.0.1'#用于自动布局的库。
+  pod 'Alamofire' #用于网络请求的库。
+  pod 'Moya'
+  pod 'PomeloNet'
+  pod 'SwiftyJSON' #用于处理JSON数据的库。
+  pod 'HandyJSON'
+  pod 'Alamofire'
+  pod 'SDWebImage' #用于加载和缓存图像的库。
+  pod 'Kingfisher' #用于图像加载和缓存的库。
+  pod 'Charts' #用于图表绘制的库。
+  pod 'Hero' #用于视图控制器转换动画的库。
   pod 'Surge' #Surge是一个基于Accelerate框架和C语言开发，用于进行矩阵运算、数学信号处理和图像处理的API。换句话说，就是可以非常快速的处理数学、语音和图像信号
   pod 'Dollar' #无需扩展任何内置对象就为Swift语言提供有效的函数式编程辅助方法，类似于Lo-Dash或JavaScript中的Underscore。而Cent则是通过扩展功能来扩展Swift中的特定对象类型
-#  pod 'ExSwift' #对标准类型和类的扩展。
-#  pod 'SwiftTask'
+  #  pod 'Fabric' #用于应用程序分析和改进的库。
+  #  pod 'ExSwift' #对标准类型和类的扩展。
+  #  pod 'SwiftTask'
+  pod 'Realm'
   pod 'Haneke' #一款使用Swift语言编写的，轻量级的iOS通用缓存。它为UIImage、NSData、JSON和String提供记忆和LRU磁盘缓存或其他像数据可以读取或写入的任何其他类型。特别地是，Haneke更擅长处理图像
   pod 'Cartography' #Cartography是用来声明Swift中的Auto Layout，无需输入任何stringly就可设置自己Auto Layout的约束声明
   

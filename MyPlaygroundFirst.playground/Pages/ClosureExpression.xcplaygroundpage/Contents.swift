@@ -5,7 +5,8 @@ import Foundation
 var str = "Hello, playground"
 var title : String = ""
 ///TODO: 排序内联闭包函数
-//闭包表达式是一种构建内联闭包的方式，在保证不丢失它语法清晰明了的同时，闭包表达式提供了几种优化的语法简写形式
+// 闭包表达式是一种构建内联闭包(自包含的函数代码块)的方式，在保证不丢失它语法清晰明了的同时，闭包表达式提供了几种优化的语法简写形式
+// 闭包可以捕获和存储其所在上下文中任意常量和变量的引用。被称为包含常量和变量。Swift 会为你管理在捕获过程中涉及到的所有内存操作
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 print("排序前的数据是\(names)")
 //因此排序闭包函数类型为 (String, String) -> Bool
@@ -18,6 +19,13 @@ print("排序后的数据是\(reversedNames)")
 //{ (parameters) -> return type in
 //    statements
 //}
+// reversedNames is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 > s2
+})
+print("排序后的数据是\(reversedNames)")
+
+
 // 当网络请求结束后调用的闭包。发起请求后过了一段时间后这个闭包才执行，并不一定是在函数作用域内执行的
 getData { (data) in
     print("闭包结果返回--\(data)--\(Thread.current)")
@@ -218,6 +226,18 @@ func printIntegerKinds(_ numbers: [Int]) {// Int类型的数组
     print("")
 }
 printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
+
+// 这两个方法很类似，主要就一个参数类型的区别。
+func isIntEqual(x:Int,y:Int) -> Bool {
+    return x == y
+}
+func isStringEqual(x:String,y:String) -> Bool {
+    return x == y
+}
+// 我们可以利用范型合并一下：
+func isObjEqual<T:Equatable>(x:T,y:T) -> Bool {
+    return x == y
+}
 // Prints "+ + - 0 - 0 + "
 
 //: [Next](@next)

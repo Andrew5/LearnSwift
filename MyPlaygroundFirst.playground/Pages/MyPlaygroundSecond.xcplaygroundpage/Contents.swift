@@ -5,11 +5,16 @@ import UIKit
 import XCPlayground
 
 var str = "Hello, playground"
-//生成语法树：swift -dump-ast main.swift
-//生成最简洁的SIL代码：swift -emit-sit main.swift
-//生成LLVM IR代码：swift -emitir-ir main
+//生成语法树：swiftc -dump-ast main.swift
+//brace_stmt
+//生成最简洁的SIL代码：swiftc -emit-sit main.swift
+//生成LLVM IR代码：swiftc -emitir-ir main.swift -o main.ll
+//生成汇编代码: swiftc -emit-assembly main.swift -o main.s
 //AT&T汇编->iOS模拟器
 //ARM汇编->iOS真机
+//swift code->swift AST -> Raw Swift IL -> Assembly ->llvm IR ->Canonical swift IL-> LLVM compiler
+//https://www.swift.org/swift-compiler/#compiler-architecture
+//swiftc -emit-sil 'main'.swift | xcrun swift-demangle > 'main'.sil  && open 'main'.sil
 ///常见汇编
 //项目           AT&T                                                   Inter                                             说明
 //寄存器命名     %rax                                                   rax
@@ -48,6 +53,7 @@ class TestSubClass: TestProtocol {
         return TestSubClass() as! Self
     }
 }
+// 可以使用下划线 _ 忽略某个值
 extension GYLoadNibProtocl where Self : UIView {
     static func loadFromNib(_ nibname: String? = nil) -> Self {
         let loadName = nibname == nil ? "\(self)" : nibname!
@@ -548,7 +554,7 @@ class MyViewController : UIViewController {
     
     
     @objc func tagAddAlert(){
-        
+        sumXXXX(12, 1)
     }
     // func 函数名 （形参列表） -> 返回值类型 { 函数体}
     @objc func click(aButton button: UIButton) -> Bool {
@@ -577,10 +583,10 @@ class MyViewController : UIViewController {
         return result
     }
     
-    
-//    func sum (number1:Int, number2:Int) -> Int{
-//        return number1 + number2;
-//    }
+    // 常常这么写
+    func sumXXXX (_ number1:Int,_ number2:Int) -> Int{
+        return number1 + number2;
+    }
     
     
     //形参命名

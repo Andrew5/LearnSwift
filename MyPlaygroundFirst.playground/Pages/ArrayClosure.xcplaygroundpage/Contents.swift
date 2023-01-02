@@ -1,5 +1,5 @@
 //: [Previous](@previous)
-
+//TODO: map flatmap  filter   compactMap  reduse
 import Foundation
 
 //map闭包函数的功能就是对数组中的每一项进行遍历，然后通过映射规则对数组中的每一项进行处理，最终的返回结果是处理后的数组（以一个新的数组形式出现）。当然，原来数组中的元素值是保持不变
@@ -15,7 +15,35 @@ let newNums = nums.map { (num) -> Int in
     print("结果是\(a)")
     return a
 }
+// for循环
+let values = [2.0, 4.0, 5.0, 7.0]
+var squares: [Double] = []
+for value in values {
+   squares.append(value*value)
+}
+// map机制
+// for循环机制使我们用的比较多的,但是代码不高雅,我们必须声明一个squares并且是一个可变数组(很可能在下面用的时候改变)。如果使用map方式，squares直接定义为let，即不可变数组，我们甚至不必指定squares的类型，因为swift可以进行类型推断(infer)。
+// map函数有只有一个闭包（闭包也是函数）作为参数，当map对集合对象进行一次遍历时，闭包参数就执行一遍。这个闭包将集合对象中的元素作为参数，并返回一个新的值。最后map函数返回一个包含新的值的数组。
+let squaresMap = values.map { $0 * $0 }
+squaresMap // [4.0, 16.0, 25.0, 49.0]
+// 以下是详细拆解开
+let squaresMap2 = values.map({(value: Double) -> Double in
+    return value * value
+})
+// 进一步简化
+let squaresMap3 = values.map { value in
+  value * value
+}
+squaresMap3 // [4.0, 16.0, 25.0, 49.0]
 
+for (index, digit) in values.enumerated() {
+    print("第\(index)个元素的值:\(digit)")
+}
+print(values[1],values[2],separator: ", ")//打印：2 ，11
+print(values[1...2])//打印1~2的索引值元素
+print(values[1..<values.endIndex])//从索引1到数组最后一个
+
+values.compactMap({ $0 })
 
 
 //可选的可选参数使用起来非常混乱，但这就是 flatMap() 出现的地方：它不仅执行转换，随后将返回的内容展平，因此“可选的可选参数”变为“可选的”。
@@ -32,6 +60,30 @@ let arr2 = arr.compactMap{ $0 }.flatMap{ $0 }
 print(arr1, arr2, separator: "\n")
 // [[[1, 1, 1], 2], [3, 4]]
 // [[1, 1, 1], 2, 3, 4]
+
+let numsFNil = [1, nil, 3, nil, 5]
+let resultT = numsFNil.compactMap { (item) -> Int? in
+    return item
+}
+resultT // [1, 3, 5]
+let resultJianhua = numsFNil.compactMap { return $0 }
+resultJianhua // [1, 3, 5]
+
+let resultInt = nums.compactMap { (item) -> String? in
+    return "\(item)"
+}
+resultInt // ["1", "2", "3", "4", "5"]
+let resultJianhuas = nums.compactMap { return "\($0)" }
+resultJianhuas // ["1", "2", "3", "4", "5"]
+
+//筛选数据 - 能被4整除的数
+let resultC = nums.compactMap { (item) -> Int? in
+    if item%4 == 0 {
+        return item
+    }
+    return nil
+}
+resultC // [12, 44]
 
 // 转化为 [Int?] 因为内部元素可能不符合转化规则
 let strings = ["1", "2", "fish"]
@@ -88,6 +140,10 @@ let even = numbers.filter{(num) -> Bool in
 numbers
 evens
 even
+
+let average = Double(numbers.reduce(0, +)) / Double(numbers.count)
+print("The average of our array is: \(average)")
+
 let array = [1,2,3,4]
 let filteredArray = array.filter{$0 > 2}//$0代表闭包的第n+1个参数（这里代表数组中的元素）
 print(filteredArray)//[3, 4]
