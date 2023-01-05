@@ -90,6 +90,8 @@ Int(false)
 
 // Swift中protocol的功能比OC中强大很多，不仅能在class中实现，同时也适用于struct、enum。
 // 使用 mutating 关键字修饰方法是为了能在该方法中修改 struct 或是 enum 的变量，在设计接口的时候，也要考虑到使用者程序的扩展性。所以要多考虑使用mutating来修饰方法。
+// 如果结构体或枚举的实例是常量，则不能使用 mutating 标记的方法
+// 相反 不可变关键字frozen 类型、方法是不可变的，并且也不能被继承。这个修饰符可以帮助编译器优化代码性能。
 protocol h{
     mutating func plus(_ num:Int)
 }
@@ -99,7 +101,7 @@ extension Int:h{
     }
 }
 protocol ExampleProtocol {
-    var simpleDescription: String { get }
+    var simpleDescription: String { get }//一个只读的 simpleDescription 属性，类型为 String。
     mutating func adjust()
 }
 // 注意声明 SimpleStructure 时候 mutating 关键字用来标记一个会修改结构体的方法。SimpleClass 的声明不需要标记任何方法，因为类中的方法通常可以修改类属性（类的性质）
@@ -213,15 +215,144 @@ func printIntegerKinds(_ numbers: [Int]) {
 printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 // Prints "+ + - 0 - 0 + "
 
-
-class SimpleClass: ExampleProtocol {
+// TODO: 可选协议方法
+// 类、结构体、枚举类型 都可以遵循协议
+// 枚举可以遵循协议，但是不能遵循带有构造器的协议，因为枚举的所有实例都是在编译时就已经确定的，所以枚举没有构造器，所以也不能遵循带有构造器的协议。
+// 如果我们想要像Objective-C 里那样定义可选的协议方法，就需要将协议本身和可选方法都定义为Objective-C的，也即在 protocol 定义之前以及协议方法之前加上 @optional。
+// 在遵循该协议的类中实现构造器，并指定其为类的指定构造器或便利构造器，必须给用"required"修饰
+// 枚举不能遵循带有构造器的协议。因为枚举的成员的构造器是默认提供的(枚举的成员是不能重写系统提供的构造器的，因为枚举的成员是固定的值，无法提供自定义的构造器。如果你想要提供自定义的初始化方法，可以在枚举类型的定义中加入枚举成员的原始值，然后在枚举成员的定义中给出相应的初始化方法即可)
+// 如果你想让枚举遵循带有构造器的协议，可以使用结构体或者类来实现协议
+@objc protocol OptionalProtocol {
+    @objc optional func optionalMethod()
+}
+// 对于所有的声明，它们的前缀修饰是完全分开的，必须对每一个可选方法添加前缀，对于没有前缀的方法来说，它们是默认必须实现的。
+@objc protocol OprionalProtocol {
+    @objc optional func optionalMethod()//可选
+    func necessaryMethod()//必须实现
+    @objc optional func anotherOptionalMethod()//可选
+}
+protocol daysofaweek {
+    mutating func show()
+}
+protocol OptionalNewProtocol {
+    func method1()
+    func method2()
+    func method3()
+}
+// 带有构造器的协议
+protocol ProductWithInit {
+    init (name: String, age: Int)
+}
+// 可以使用 extension 关键字来扩展一个已有的类型，同时遵循一个协议。例如：
+extension OptionalNewProtocol {
+    func method1(){
+        print("可选方法");
+    }
+    func method2(){
+        print("可选方法");
+    }
+}
+struct PackageInfo{
+    var name:String
+    var number:Int
+    var price:Float
+    var address:String
+}
+class SimpleClass: ExampleProtocol,ProductWithInit {
+    
+    var name:String = ""
+    var age:Int = 0
+    
     var simpleDescription: String = "A very simple class"
     var anotherProperty: Int = 110
     // 在 class 中实现带有mutating方法的接口时，不用mutating进行修饰。因为对于class来说，类的成员变量和方法都是透明的，所以不必使用 mutating 来进行修饰
     func adjust() {
         simpleDescription += " Now 100% adjusted"
     }
+    
+    // Swift中，父类的所有指定初始化器都必须被子类调用，以保证父类的所有属性都被正确初始化。
+    // Initializer requirement 'init(name:age:)' can only be satisfied by a 'required' initializer in non-final class 'MainViewController'
+    //  你在定义一个遵循某个协议的类的时候，你需要提供一个叫做 init(name:age:) 的构造器方法，但是你的类 MainViewController 没有提供这个构造器方法。而且这个类不是最终类，所以这个构造器方法需要是 required 的；如果协议要求提供一个或多个构造器，那么在扩展中提供的构造器都必须是 required 的
+    // 实现一个便利构造器
+    // convenience 修饰构造器方法 表示是便利构造器 便利构造器是可选的 因为协议构造器本身就是必需的。
+    required convenience init(name: String = "", age: Int = 0) {
+        self.init()  // 调用 required 的构造器
+        self.name = name
+        self.age = age
+    }
 }
+enum days: daysofaweek {
+    case sun, mon, tue, wed, thurs, fri, sat,De
+    mutating func show() {
+        switch self {
+        case .sun:
+            self = .sun
+            print("Sunday")
+            break
+        case .mon:
+            self = .mon
+            print("Monday")
+            break
+        case .tue:
+            self = .tue
+            print("Tuesday")
+            break
+        case .wed:
+            self = .wed
+            print("Wednesday")
+            break
+        case .thurs:
+            self = .thurs
+            print("Wednesday")
+            break
+        case .fri:
+            self = .fri
+            print("Firday")
+            break
+        case .sat:
+            self = .sat
+            print("Saturday")
+            break
+        default:
+            print("NO Such Day")
+            break
+        }
+    }
+}
+
+// 扩展可以添加遵循的协议，但不能声明新的协议类型。只能在定义新类型的地方声明协议（例如在类或结构体定义中）。
+// 扩展中添加的协议只能是类型本身不遵循的协议。如果类型本身已经遵循了协议，就不能再通过扩展来添加遵循该协议的行为。如果需要对类型原有的协议遵循行为进行扩展，可以使用协议扩展来实现
+extension SimpleClass:OptionalProtocol,OptionalNewProtocol,daysofaweek {
+
+    func necessaryMethod(){
+        print("必须实现方法");
+    }
+    func optionalMethod() {
+        print("可选方法");
+    }
+    func method3(){
+        print("必须实现方法");
+    }
+    func testStore(){
+        let testInfo = [
+            PackageInfo(name: "测试1", number: 1, price: 1111, address: "阿西西"),
+            PackageInfo(name: "测试2", number: 2, price: 882.0, address: "哈哈"),
+            PackageInfo(name: "测试3", number: 3, price: 35.0, address: "7哈哈"),
+            PackageInfo(name: "测试4", number: 4, price: 50.0, address: "oo")
+        ]
+        let testDemo = testInfo.filter{(package) -> Bool in
+            return package.price == 1111
+        }
+        print(testDemo)
+        var res = days.wed
+        res.show()
+    }
+    func show() {
+        
+    }
+    
+}
+
 enum SimpleEnum: ExampleProtocol {
     case First, Second, Third
     var simpleDescription: String {
@@ -234,10 +365,6 @@ enum SimpleEnum: ExampleProtocol {
             case .Third:
                 return "third"
             }
-        }
-
-        set {
-            simpleDescription = newValue
         }
     }
     

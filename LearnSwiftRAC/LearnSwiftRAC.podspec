@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/jabraknight/LearnSwiftRAC'
+  s.homepage         = 'https://github.com/Andrew5/LearnSwiftRAC'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jabraknight' => 'localhost3585@gmail.com' }
-  s.source           = { :git => 'https://github.com/jabraknight/LearnSwiftRAC.git', :tag => s.version.to_s }
+  s.author           = { 'Andrew5' => 'localhost3585@gmail.com' }
+  s.source           = { :git => 'https://github.com/Andrew5/LearnSwiftRAC.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -36,13 +36,9 @@ TODO: Add long description of the pod here.
   #   'LearnSwiftRAC' => ['LearnSwiftRAC/Assets/*.png']
   # }
 
-#   s.public_header_files = 'Pod/Classes/**/*.h'
-#  s.ios.vendored_frameworks = 'HWMMREngine'
-#  s.vendored_frameworks = 'HWMMREngine.framework', 'HWMUISDK.framework'
-#  s.libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0','c++'
-#  s.vendored_libraries = 'iconv.2', 'c++.1', 'resolv.9','z.1','z','sqlite3.0'
-#  s.library = 'c++'
-#  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  # s.frameworks = 'UIKit', 'MapKit'
+  # s.dependency 'AFNetworking', '~> 2.3'
   s.xcconfig = {
 #      'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
 #      'CLANG_CXX_LIBRARY' => 'libc++',

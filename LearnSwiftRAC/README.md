@@ -1,6 +1,6 @@
 # LearnSwiftRAC
 
-[![CI Status](https://img.shields.io/travis/jabraknight/LearnSwiftRAC.svg?style=flat)](https://travis-ci.org/jabraknight/LearnSwiftRAC)
+[![CI Status](https://img.shields.io/travis/Andrew5/LearnSwiftRAC.svg?style=flat)](https://travis-ci.org/Andrew5/LearnSwiftRAC)
 [![Version](https://img.shields.io/cocoapods/v/LearnSwiftRAC.svg?style=flat)](https://cocoapods.org/pods/LearnSwiftRAC)
 [![License](https://img.shields.io/cocoapods/l/LearnSwiftRAC.svg?style=flat)](https://cocoapods.org/pods/LearnSwiftRAC)
 [![Platform](https://img.shields.io/cocoapods/p/LearnSwiftRAC.svg?style=flat)](https://cocoapods.org/pods/LearnSwiftRAC)
@@ -22,7 +22,7 @@ pod 'LearnSwiftRAC'
 
 ## Author
 
-jabraknight, localhost3585@gmail.com
+Andrew5, localhost3585@gmail.com
 
 ## License
 

@@ -1,0 +1,6 @@
+framework module PomeloNet {
+  umbrella header "PomeloNet-umbrella.h"
+
+  export *
+  module * { export * }
+}

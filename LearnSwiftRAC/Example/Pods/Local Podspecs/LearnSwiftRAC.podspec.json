@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "summary": "A short description of LearnSwiftRAC.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/jabraknight/LearnSwiftRAC",
+  "homepage": "https://github.com/Andrew5/LearnSwiftRAC",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "jabraknight": "localhost3585@gmail.com"
+    "Andrew5": "localhost3585@gmail.com"
   },
   "source": {
-    "git": "https://github.com/jabraknight/LearnSwiftRAC.git",
+    "git": "https://github.com/Andrew5/LearnSwiftRAC.git",
     "tag": "0.1.0"
   },
   "platforms": {

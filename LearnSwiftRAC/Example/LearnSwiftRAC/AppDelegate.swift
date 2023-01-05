@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LearnSwiftRAC
 //
-//  Created by jabraknight on 09/03/2022.
-//  Copyright (c) 2022 jabraknight. All rights reserved.
+//  Created by Andrew5 on 01/05/2023.
+//  Copyright (c) 2023 Andrew5. All rights reserved.
 //
 
 import UIKit

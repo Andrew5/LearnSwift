@@ -14,10 +14,13 @@ import RxCocoa
 // public:可以在任何地方被访问，在其他module中不能被继承和重写
 // internal:默认访问级别，在整个模块内都可以被访问，内部的,默认的权限范围，即不写的时候默认是internal修饰的，在同一module可以访问，
 // fileprivate:其修饰的属性可以在同一个文件被访问、继承和重写，同一个文件指同一个swift文件，一个文件中可以有多个类，一个.swift文件下
-public class MainViewController : UIViewController {
+public class MainViewController : UIViewController,ProductWithInit {
     
     var addBtn = UIButton(type: .custom)
     var textField = UITextField()
+    
+    var name:String
+    var age:Int
     
     lazy var bag: DisposeBag = DisposeBag()
     
@@ -221,9 +224,19 @@ public class MainViewController : UIViewController {
         //            .flatMapLatest { (arg0) -> Driver<String> in
         //                return Observable<String>.just("网络请求结果").asDriver(onErrorJustReturn: "网络异常")
         //            }
-        
+        doSomething(withData: true) { s in
+            // do something with the result (s)
+        }
     }
     
+    func doSomething(withData data: Bool, completion: ((_ s: Bool) -> Void)?) {
+        // do something with the data
+        // when finished, call the completion closure if it is not nil
+        completion?(true)
+    }
+
+ 
+
     //    @objc func alertTextFieldDidChange(_ textField: UITextField) {
     //        guard
     //            let alertController = presentedViewController as? UIAlertController,
@@ -346,8 +359,28 @@ public class MainViewController : UIViewController {
         let removedChar2 = chars.removeFirst()
         print("-------\(removedChar2)")//a
 
+        // 字符串插入
+        var welcome = "hello"
+        welcome.insert("!", at: welcome.endIndex)//插入一个字符
+        print("insertNewCharacters:\(welcome)\n");//打印输出： insertNewCharacters:hello!
+        
+        // 插入一个子字符串
+        welcome.insert(contentsOf: " word", at: welcome.index(before: welcome.endIndex))//插入一个子字符串
+        print("insertNewSubStr:\(welcome)\n")//打印输出： insertNewSubStr:hello word!
 
+        // 字符串插值
+        let addend = 6
+        let sumStr = "\(addend) add 8.1 is \(Double(addend) + 8.1)"
+        print(sumStr)//打印输出： 6 add 8.1 is 14.1
 
+        // 删除最后一个字符
+        welcome.remove(at: welcome.index(before: welcome.endIndex))//删除最后一个字符
+        print("removeStrLastCharacters:\(welcome)\n")//打印输出： removeStrLastCharacters:hello word
+                
+        // 删除规定范围内的子串
+        let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+        welcome.removeSubrange(range)//删除规定范围内的子串
+        print("removeStrRange:\(welcome)\n")//打印输出： removeStrRange:hell
 //        let heightOfPersonFilter = targetString.filter{(height:String) -> Bool in
 //            return height > 180
 //        }
@@ -356,14 +389,68 @@ public class MainViewController : UIViewController {
 //        for i in 0...targetString.count{
 //            targetStringA.append(contentsOf: targetString[i])
 //        }
+        //block 在内部可以访问外部的变量，但是这些变量只能被读取，不能被修改。如果想要在 block 内部修改外部的变量，可以使用 inout 修饰符。
+        //block 也可以使用关键字 typealias 来给它定义一个类型。
+        /*
+         typealias IntBlock = (Int) -> Int
+         let simpleBlock: IntBlock = { aNumber in
+             return aNumber * aNumber
+         }
+         */
+        let simpleBlock: (inout Int) -> Int = { aNumber in
+//            aNumber = 1
+            return aNumber * aNumber
+        }
+        var number = 10
+        let result = simpleBlock(&number)
+        print(result) // 输出100
         
+        var a = 10
+        modifyInt(num: &a)
+        print(a) // 输出11
     }
+    func modifyInt(num: inout Int) {
+        num += 1
+    }
+    // Swift中，父类的所有指定初始化器都必须被子类调用，以保证父类的所有属性都被正确初始化。
+    // Initializer requirement 'init(name:age:)' can only be satisfied by a 'required' initializer in non-final class 'MainViewController'
+    //  你在定义一个遵循某个协议的类的时候，你需要提供一个叫做 init(name:age:) 的构造器方法，但是你的类 MainViewController 没有提供这个构造器方法。而且这个类不是最终类，所以这个构造器方法需要是 required 的；如果协议要求提供一个或多个构造器，那么在扩展中提供的构造器都必须是 required 的
+    
+    required init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+        super.init(nibName: nil, bundle: nil)
+    }
+    // convenience 修饰构造器方法 表示是便利构造器 便利构造器是可选的 因为协议构造器本身就是必需的。
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // 遵循协议，加上"required" 继承父类重写父类构造器加上"override"
+    //    required override init(name: String, age: Int) {
+    //        fatalError("init(coder:) has not been implemented")
+    //    }
+
     public override func didReceiveMemoryWarning() {
         
     }
+    // 使用 typealias 关键字将 Item 类型别名定义为 String 类型
+    // 我们就可以在 Class 中使用 String 类型来实现协议中的方法 doSomething(with:)。
+    typealias Item = String
+    func doSomething(with item: String) {
+        // 实现协议中的方法
+    }
+    // associatedtype: 这个关键字用于协议中，表明该协议包含一个关联类型。关联类型是一种泛型，它可以在协议被遵循时指定。
+    // Slice<Self>: 这是一种类型别名，表示当前类型的子序列。例如，如果 Self 是一个数组类型，那么 Slice<Self> 就表示该数组的一个子区间。
 }
+// 
 // TODO: 可选协议方法
+// 类、结构体、枚举类型 都可以遵循协议
+// 枚举可以遵循协议，但是不能遵循带有构造器的协议，因为枚举的所有实例都是在编译时就已经确定的，所以枚举没有构造器，所以也不能遵循带有构造器的协议。
 // 如果我们想要像Objective-C 里那样定义可选的协议方法，就需要将协议本身和可选方法都定义为Objective-C的，也即在 protocol 定义之前以及协议方法之前加上 @optional。
+// 在遵循该协议的类中实现构造器，并指定其为类的指定构造器或便利构造器，必须给用"required"修饰
+// 枚举不能遵循带有构造器的协议。因为枚举的成员的构造器是默认提供的
+// 如果你想让枚举遵循带有构造器的协议，可以使用结构体或者类来实现协议
+// 协议是能够继承其他协议，可以在继承的协议基础上增加新的内容要求。
 @objc protocol OptionalProtocol {
     @objc optional func optionalMethod()
 }
@@ -373,11 +460,19 @@ public class MainViewController : UIViewController {
     func necessaryMethod()//必须实现
     @objc optional func anotherOptionalMethod()//可选
 }
+
 protocol OptionalNewProtocol {
+    associatedtype Item //可以使用 associatedtype 关键字来定义类的专属协议 定义了类型别名 Item
+    func doSomething(with item: Item)
     func method1()
     func method2()
     func method3()
 }
+// 带有构造器的协议
+protocol ProductWithInit {
+    init (name: String, age: Int)
+}
+// 可以使用 extension 关键字来扩展一个已有的类型，同时遵循一个协议。例如：
 extension OptionalNewProtocol {
     func method1(){
         print("可选方法");
@@ -387,7 +482,10 @@ extension OptionalNewProtocol {
     }
 }
 
-extension MainViewController : OptionalProtocol,OptionalNewProtocol {
+// 扩展可以添加遵循的协议，但不能声明新的协议类型。只能在定义新类型的地方声明协议（例如在类或结构体定义中）。
+// 扩展中添加的协议只能是类型本身不遵循的协议。如果类型本身已经遵循了协议，就不能再通过扩展来添加遵循该协议的行为。如果需要对类型原有的协议遵循行为进行扩展，可以使用协议扩展来实现
+extension MainViewController: OptionalProtocol,OptionalNewProtocol {
+    
     func necessaryMethod(){
         print("必须实现方法");
     }
@@ -397,9 +495,9 @@ extension MainViewController : OptionalProtocol,OptionalNewProtocol {
     func method3(){
         print("必须实现方法");
     }
-
+    
 }
-
+// 结构体不能遵循 @objc 协议
 struct PackageInfo{
     var name:String
     var number:Int
@@ -415,12 +513,49 @@ extension MainViewController {
             PackageInfo(name: "测试4", number: 4, price: 50.0, address: "oo")
         ]
         let testDemo = testInfo.filter{(package) -> Bool in
-            return package.price == 111
+            return package.price == 1111
         }
         print(testDemo)
-
+        var res = days.wed
+        res.show()
     }
 }
+protocol daysofaweek {
+    mutating func show()
+}
+ 
+enum days: daysofaweek {
+    case sun, mon, tue, wed, thurs, fri, sat ,def
+    mutating func show() {
+        switch self {
+        case .sun:
+            self = .sun
+            print("Sunday")
+        case .mon:
+            self = .mon
+            print("Monday")
+        case .tue:
+            self = .tue
+            print("Tuesday")
+        case .wed:
+            self = .wed
+            print("Wednesday")
+        case .thurs:
+            self = .thurs
+            print("Wednesday")
+        case .fri:
+            self = .fri
+            print("Firday")
+        case .sat:
+            self = .sat
+            print("Saturday")
+        default:
+            print("NO Such Day")
+        }
+    }
+}
+
+
 //extension  MainViewController: UITextFieldDelegate {
 //    private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 //        print("将要开始编辑")

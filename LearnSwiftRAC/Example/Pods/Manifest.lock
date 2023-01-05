@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.6.4)
   - Cartography (4.0.0)
   - Dollar (9.0.0)
   - FBSnapshotTestCase (2.1.4):
@@ -6,92 +7,114 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - HandyJSON (5.0.2)
   - Haneke (1.0.2)
-  - iOSSnapshotTestCase (8.0.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 8.0.0)
-  - iOSSnapshotTestCase/Core (8.0.0)
-  - iOSSnapshotTestCase/SwiftSupport (8.0.0):
-    - iOSSnapshotTestCase/Core
+  - Hero (1.6.2)
+  - Kingfisher (6.3.1)
   - LearnSwiftRAC (0.1.0):
     - RxCocoa (~> 6.5.0)
     - RxSwift (~> 6.5.0)
     - SnapKit (~> 5.0.1)
-  - Nimble (10.0.0)
-  - Nimble-Snapshots (9.4.0):
-    - Nimble-Snapshots/Core (= 9.4.0)
-  - Nimble-Snapshots/Core (9.4.0):
-    - iOSSnapshotTestCase (~> 8.0)
-    - Nimble
-  - Quick (2.2.1)
-  - RxBlocking (6.5.0):
-    - RxSwift (= 6.5.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - PomeloNet (1.0.0):
+    - HandyJSON
+    - Moya/RxSwift
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - Realm (10.33.0):
+    - Realm/Headers (= 10.33.0)
+  - Realm/Headers (10.33.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
-  - RxTest (6.5.0):
-    - RxSwift (= 6.5.0)
+  - SDWebImage (5.14.3):
+    - SDWebImage/Core (= 5.14.3)
+  - SDWebImage/Core (5.14.3)
   - SnapKit (5.0.1)
   - Surge (2.3.2)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Cartography
   - Dollar
   - FBSnapshotTestCase (~> 2.1.4)
+  - HandyJSON
   - Haneke
+  - Hero
+  - Kingfisher
   - LearnSwiftRAC (from `../`)
-  - Nimble (~> 10.0.0)
-  - Nimble-Snapshots (~> 9.4.0)
-  - Quick (~> 2.2.0)
-  - RxBlocking (= 6.5.0)
+  - Moya
+  - PomeloNet
+  - R.swift
+  - Realm
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
-  - RxTest (= 6.5.0)
+  - SDWebImage
   - SnapKit (= 5.0.1)
   - Surge
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Cartography
     - Dollar
     - FBSnapshotTestCase
+    - HandyJSON
     - Haneke
-    - iOSSnapshotTestCase
-    - Nimble
-    - Nimble-Snapshots
-    - Quick
-    - RxBlocking
+    - Hero
+    - Kingfisher
+    - Moya
+    - PomeloNet
+    - R.swift
+    - R.swift.Library
+    - Realm
     - RxCocoa
     - RxRelay
     - RxSwift
-    - RxTest
+    - SDWebImage
     - SnapKit
     - Surge
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   LearnSwiftRAC:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
   Dollar: 2fc9bdeeb2d3ae1f251461803240d5c93829ee0c
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
-  iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
-  LearnSwiftRAC: 8cda9591fa4a1e746bdaa493de7758964e751162
-  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
-  Nimble-Snapshots: ef281b908c604f78c8313587e25ea92c8ab513d7
-  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
-  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  Hero: c69009dbc9e2f0472e081adc644dba05fcedae72
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  LearnSwiftRAC: b0a3200965100522c3ed16dc41ddcc2b6d4edbef
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  PomeloNet: bbb8daafe85c8e958a5d8db00bd3b8ce65ddcf7d
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Realm: d4f810e161fa2c2c589b9860b6eb09238deacd73
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  SDWebImage: 9c36e66c8ce4620b41a7407698dda44211a96764
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Surge: bd84c931a09caa001312ea35059751f2036c49c4
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: f20d28be2e0388fdb17d986c9a2f3666995f676c
+PODFILE CHECKSUM: aef6c4643671cb3310251afd6e271563213b5969
 
 COCOAPODS: 1.11.3
