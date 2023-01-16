@@ -4,6 +4,10 @@ import Foundation
 
 var str = "Hello, playground"
 //Swift 枚举(关联值) 有时会将枚举的成员值跟其他类型的值关联储存在一起
+// ⚠️如果枚举后面有类型，称之为原始值，原始值一开始就是固定死的，关联好的，原始值是不会将默认值存储到枚举变量里面去，(原始值是不会占用枚举变量内存的，不是存储到枚举变量内存里面的)
+// ⚠️如果枚举通过传入具体的值进行关联，那传进去的值直接存储到枚举变量内存里面，
+// ⚠️如果枚举的原始值类型是Int、String，Swift会自动分配原始值
+// 关联值会放在枚举变量内存里面 原始值不会放在枚举内存变量
 enum PayType: Int {
     case Default
     case Value1
@@ -19,6 +23,11 @@ enum HouseType: String {
     case Tully = "Family, Duty, Honor"
     case Tyrell = "Growing Strong"
 }
+// 等价于
+//enum HouseType: String {
+//    case Baratheon,Greyjoy,Martell,Stark,Tully,Tyrell
+//}
+// 枚举成员可以使用相同类型的默认值预先关联，这个默认值叫做：原始值
 enum PokerSuit : Character {
     case space = "♠️"//关联的是character类型的枚举值
     case heart = "♥️"
@@ -167,5 +176,61 @@ enum CompassPoint: String {
 }
 
 print("数字枚举\(paytype)","字符串枚举\(housetype)","快速枚举\(Planet.Venus)","快速枚举\(CompassPoint.South)")
+// 关联值
+enum Date {
+    case digit(year: Int, month: Int,day: Int)
+    case string(String)
+}
+var date = Date.digit(year: 2023, month: 01, day: 17)
+date = .string("2023-09-10")
+//switch date {
+//case .digit(let year, let month, let day):
+//    print(year,month,day)
+//case let .string(value):
+//    print(value)
+//}
+
+enum Password {
+    case number(Int,Int,Int,Int)
+    case gesture(String)
+}
+var pwd = Password.number(3, 5, 7, 8)
+pwd = .gesture("4353")
+//switch pwd {
+//case .number(n1, n2, n3, n4):
+//    print("number is",n1, n2, n3, n4)
+//case let .gesture(str):
+//    print(str)
+//}
+
+// 递归枚举
+//indirect enum ArithExpr {
+//    case number(Int)
+//    case sum(ArithExpr, ArithExpr)
+//    case difference(ArithExpr, ArithExpr)
+//}
+// 等效于
+//enum ArithExpr {
+//    case number(Int)
+//    indirect case sum(ArithExpr, ArithExpr)
+//    indirect case difference(ArithExpr, ArithExpr)
+//}
+//let five = ArithExpr.number(5)
+//let four = ArithExpr.number(4)
+//let two = ArithExpr.number(2)
+//let sum = ArithExpr.sum(five, four)
+//let difference = ArithExpr.difference(sum, two)
+//func calculate(_ expr: ArithExpr) -> Int {
+//    switch expr {
+//    case let .number(value):
+//        return value
+//    case let .sum(left, right):
+//        return calculate(left) + calculate(right)
+//    case let .difference(left, right):
+//        return calculate(left) - calculate(right)
+//    }
+//}
+//calculate(difference)
+
 
 //: [Next](@next)

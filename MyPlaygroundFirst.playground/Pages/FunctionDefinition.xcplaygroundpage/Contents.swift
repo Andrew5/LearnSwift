@@ -9,8 +9,12 @@ func pi() -> Double {
 }
         ///形参
 func sum(v1: Int,  v2: Int) -> Int {
-    return v1 + v2  //函数表达式 return 可以省略
-}
+    v1 + v2  //函数表达式 return 可以省略
+}//函数类型：(Int, Int) -> Int //每一个函数都是有类型的，函数类型由形式参数类型、返回值类型组成
+// 定义变量
+var fn: (Int, Int) -> Int = sum
+fn(2 ,3)// 调用时不需要参数标签
+
 pi()
 sum(v1: 10, v2: 20)
 
@@ -109,6 +113,10 @@ func printResult(_ mathFu: (Int,Int) -> Int, _ a: Int, _ b: Int) {
 }
 printResult(sum, 5, 2)
 printResult(difference, 5, 2)
+//class Person {
+//    var age: Int
+//    var fn: () - > ()
+//}
 
 //函数类型作为函数返回值
 func next(_ input: Int) -> Int {
@@ -117,8 +125,8 @@ func next(_ input: Int) -> Int {
 func previous(_ input: Int) -> Int {
     input - 1
 }
-//                            ->是forward函数的
-//                               (Int) -> Int 返回函数类型 并且接收Int类型 并且函数返回Int类型
+//                              ->是forward函数的返回值开头
+//                               (Int) -> Int 返回函数类型(返回的使个函数) 并且接收Int类型 并且函数返回Int类型
 func forward(_ forward: Bool) -> (Int) -> Int {
     forward ? next : previous
 }//高阶函数
