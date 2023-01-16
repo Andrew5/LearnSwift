@@ -28,9 +28,6 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
-  - Realm (10.33.0):
-    - Realm/Headers (= 10.33.0)
-  - Realm/Headers (10.33.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -57,7 +54,6 @@ DEPENDENCIES:
   - Moya
   - PomeloNet
   - R.swift
-  - Realm
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - SDWebImage
@@ -79,7 +75,6 @@ SPEC REPOS:
     - PomeloNet
     - R.swift
     - R.swift.Library
-    - Realm
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -106,7 +101,6 @@ SPEC CHECKSUMS:
   PomeloNet: bbb8daafe85c8e958a5d8db00bd3b8ce65ddcf7d
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
-  Realm: d4f810e161fa2c2c589b9860b6eb09238deacd73
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -115,6 +109,6 @@ SPEC CHECKSUMS:
   Surge: bd84c931a09caa001312ea35059751f2036c49c4
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: aef6c4643671cb3310251afd6e271563213b5969
+PODFILE CHECKSUM: 16ad1199cbebd3a0b0a8989cc11f4dd31e20d436
 
 COCOAPODS: 1.11.3

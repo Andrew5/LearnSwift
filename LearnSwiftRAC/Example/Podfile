@@ -25,7 +25,7 @@ target 'LearnSwiftRAC_Example' do
   #  pod 'Fabric' #用于应用程序分析和改进的库。
   #  pod 'ExSwift' #对标准类型和类的扩展。
   #  pod 'SwiftTask'
-  pod 'Realm'
+#  pod 'Realm'
   pod 'Haneke' #一款使用Swift语言编写的，轻量级的iOS通用缓存。它为UIImage、NSData、JSON和String提供记忆和LRU磁盘缓存或其他像数据可以读取或写入的任何其他类型。特别地是，Haneke更擅长处理图像
   pod 'Cartography' #Cartography是用来声明Swift中的Auto Layout，无需输入任何stringly就可设置自己Auto Layout的约束声明
   
