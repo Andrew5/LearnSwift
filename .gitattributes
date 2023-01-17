@@ -1,2 +1,0 @@
-LearnSwiftRAC/Example/Pods/Realm/core/realm-monorepo filter=lfs diff=lfs merge=lfs -text
-LearnSwiftRAC/Example/Pods/Realm/core/realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator/librealm-monorepo.a filter=lfs diff=lfs merge=lfs -text
